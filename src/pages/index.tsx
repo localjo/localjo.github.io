@@ -14,7 +14,7 @@ const IndexPage = () => (
         <Terminal title="/.welcome">
           <h1>Welcome to my site!</h1>
           <br />
-          <ASCII />
+          <ASCII text="Local Jo" />
           <br />
           <Link to="/page-2/">Go to page 2</Link>
         </Terminal>
