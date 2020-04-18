@@ -21,7 +21,9 @@ const ASCII: FC<ASCIIProps> = ({ text = 'Hello!', rainbow = true }) => {
   })
 
   if (rainbow) {
-    const lines = ascii.split('\n')
+    const lines = ascii.split('\n').filter(line => {
+      return line.trim().length > 0
+    })
     const lineColors = lines.map((_line, line) => {
       return Array.from('rbg').map((_c, rbgi) => getPhaseRBG(line, (rbgi * Math.PI * 2) / 3))
     })

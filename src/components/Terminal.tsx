@@ -61,6 +61,7 @@ const Main = styled.div`
   padding: 15px;
   font-family: monospace;
   font-size: 16px;
+  line-height: 1.2em;
   min-height: 600px;
   color: rgb(199, 199, 199);
   h1,
