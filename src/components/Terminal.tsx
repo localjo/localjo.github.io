@@ -1,6 +1,7 @@
-import React, { FC } from 'react'
+import React, { FC, useState, useRef } from 'react'
 import styled from '@emotion/styled'
 import { globalHistory as history } from '@reach/router'
+import AutosizeInput from 'react-input-autosize'
 
 import { widths } from '../styles/variables'
 import { getEmSize } from '../styles/mixins'
@@ -11,8 +12,8 @@ const Window = styled.div`
   margin-left: auto;
   margin-right: auto;
   width: auto;
-  max-width: ${getEmSize(widths.lg)}em;
-  background: rgb(40, 44, 51);
+  max-width: ${getEmSize(widths.md)}em;
+  background: rgb(30, 34, 41);
   color: white;
   box-shadow: rgba(0, 0, 0, 0.1) 1px 1px, rgba(0, 0, 0, 0.1) -1px -1px, rgba(0, 0, 0, 0.1) 1px -1px, rgba(0, 0, 0, 0.1) -1px 1px,
     rgba(0, 0, 0, 0.8) 0 0 70px;
@@ -69,9 +70,13 @@ const Main = styled.div`
   h3,
   h4,
   h5,
+  small,
   p {
     font-size: inherit;
     color: inherit;
+  }
+  small {
+    opacity: 0.5;
   }
   code,
   pre {
@@ -87,16 +92,87 @@ const Main = styled.div`
       color: rgb(40, 44, 51);
     }
   }
+  ul.ls {
+    list-style: none;
+    margin-left: 0;
+    padding-left: 0;
+    li {
+      display: inline-block;
+      margin-right: 2em;
+      margin-bottom: 1em;
+      margin-left: 0;
+      padding-left: 0;
+    }
+  }
+  .prompt {
+    min-height: 2em;
+    input {
+      font-size: 16px;
+      text-align: left;
+      box-sizing: content-box;
+      appearance: none;
+      background: transparent;
+      border: none;
+      border-right: 0.8em solid;
+      margin-right: 0.2em;
+      /* Text color with hidden caret */
+      text-shadow: 0 0 0 rgb(199, 199, 199);
+      color: transparent;
+      &:focus {
+        overflow: hidden;
+        white-space: nowrap;
+        padding-right: 1px;
+        vertical-align: bottom;
+        display: inline-block;
+        animation: blink-caret 1.2s step-end infinite;
+      }
+    }
+  }
+
+  @keyframes blink-caret {
+    from,
+    to {
+      border-right-color: transparent;
+    }
+    50% {
+      border-right-color: rgb(199, 199, 199);
+    }
+  }
 `
 
 interface TerminalProps {
   title?: string
+  commands?: {
+    [key: string]: {
+      aliases?: string[]
+      action: Function
+    }
+  }
 }
 
-const Terminal: FC<TerminalProps> = ({ children, title }) => {
+const Terminal: FC<TerminalProps> = ({ children, title, commands }) => {
   const { location } = history
+  const [value, setValue] = useState<string>()
+  const promptRef = useRef<HTMLInputElement>(null)
+  const moveCursorToEnd = (e: any) => {
+    const { value } = e.target
+    e.target.selectionStart = value.length
+  }
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = e.target
+    setValue(value.slice(0, 50))
+    e.target.selectionStart = value.length
+  }
+  const handleWindowClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    const isPromptChild = (e.target as HTMLInputElement).closest('.prompt')
+    const isPrompt = (e.target as HTMLInputElement).classList.contains('prompt')
+    const isTerminalMain = (e.target as HTMLInputElement).classList.contains('terminal-main')
+    if ((isPrompt || isPromptChild || isTerminalMain) && promptRef.current) {
+      promptRef.current.focus()
+    }
+  }
   return (
-    <Window>
+    <Window onClick={handleWindowClick}>
       <TitleBar>
         <TrafficLight>
           <button className="red"></button>
@@ -105,7 +181,26 @@ const Terminal: FC<TerminalProps> = ({ children, title }) => {
         </TrafficLight>
         <h1>you@localjo-portfolio: ~{title || location.pathname}</h1>
       </TitleBar>
-      <Main>{children}</Main>
+      <Main className="terminal-main">
+        {children}
+        {commands ? (
+          <div className="prompt">
+            >&nbsp;
+            <AutosizeInput ref={promptRef as any} autoFocus value={value} onChange={onChange} onSelect={moveCursorToEnd} />
+            {Object.keys(commands)
+              .filter(command => {
+                if (value && value.length > 0) {
+                  return command.includes(value)
+                } else {
+                  return false
+                }
+              })
+              .map(command => (
+                <small key={command}>{command}</small>
+              ))}
+          </div>
+        ) : null}
+      </Main>
     </Window>
   )
 }
