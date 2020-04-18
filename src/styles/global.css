@@ -1,0 +1,9 @@
+html {
+  box-sizing: border-box;
+  background: url(images/balaton-sunset.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  background-color: rgb(157, 166, 173);
+}

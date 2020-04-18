@@ -3,6 +3,7 @@ import { graphql } from 'gatsby'
 
 import Page from '../components/Page'
 import Container from '../components/Container'
+import Terminal from '../components/Terminal'
 import IndexLayout from '../layouts'
 
 interface PageTemplateProps {
@@ -27,18 +28,21 @@ interface PageTemplateProps {
   }
 }
 
-const PageTemplate: React.FC<PageTemplateProps> = ({ data }) => (
-  <IndexLayout>
-    <Page>
-      <Container>
-        <h1>{data.markdownRemark.frontmatter.title}</h1>
-        {/* eslint-disable-next-line react/no-danger */}
-        <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
-      </Container>
-    </Page>
-  </IndexLayout>
-)
-
+const PageTemplate: React.FC<PageTemplateProps> = ({ data }) => {
+  return (
+    <IndexLayout>
+      <Page>
+        <Container>
+          <Terminal>
+            <h1>{data.markdownRemark.frontmatter.title}</h1>
+            {/* eslint-disable-next-line react/no-danger */}
+            <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
+          </Terminal>
+        </Container>
+      </Page>
+    </IndexLayout>
+  )
+}
 export default PageTemplate
 
 export const query = graphql`
