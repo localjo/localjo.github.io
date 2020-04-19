@@ -38,4 +38,3 @@ title: 'Technologies'
 [English (Native)](){class="badge"}
 [Spanish (Fluent)](){class="badge"}
 [Hungarian (Conversational)](){class="badge"}
-

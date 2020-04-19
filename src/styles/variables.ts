@@ -12,7 +12,8 @@ export const colors = {
   teal: 'rgb(94,211,243)', // React Brand Teal
   ui: {
     terminal: 'rgb(30, 34, 41)', // Terminal Background
-    traffic: { // Terminal close buttons
+    traffic: {
+      // Terminal close buttons
       red: 'rgb(236, 97, 86)',
       yellow: 'rgb(246, 193, 81)',
       green: 'rgb(99, 199, 86)'

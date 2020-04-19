@@ -100,28 +100,28 @@ const Main = styled.div`
     padding: 0 0.4em;
     margin: 0 0 0.6em 0;
     &.yellow {
-      background:${transparentize(0.2, colors.yellow)};
+      background: ${transparentize(0.2, colors.yellow)};
     }
     &.blue {
-      background:${transparentize(0.2, colors.blue)};
+      background: ${transparentize(0.2, colors.blue)};
     }
     &.teal {
-      background:${transparentize(0.2, colors.teal)};
+      background: ${transparentize(0.2, colors.teal)};
     }
     &.purple {
-      background:${transparentize(0.2, lighten(0.25, colors.purple))};
+      background: ${transparentize(0.2, lighten(0.25, colors.purple))};
     }
     &.green {
-      background:${transparentize(0.2, colors.green)};
+      background: ${transparentize(0.2, colors.green)};
     }
     &.pink {
-      background:${transparentize(0.2, colors.pink)};
+      background: ${transparentize(0.2, colors.pink)};
     }
     &.red {
-      background:${transparentize(0.2, lighten(0.05, colors.red))};
+      background: ${transparentize(0.2, lighten(0.05, colors.red))};
     }
     &.orange {
-      background:${transparentize(0.2, lighten(0.05, colors.orange))};
+      background: ${transparentize(0.2, lighten(0.05, colors.orange))};
     }
   }
   code,
