@@ -212,6 +212,9 @@ const Footer = styled.div`
       margin-bottom: 1em;
       margin-left: 0;
       padding-left: 0;
+      &:before {
+        content: '';
+      }
     }
   }
   .prompt {
