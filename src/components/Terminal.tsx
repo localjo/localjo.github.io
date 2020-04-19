@@ -1,4 +1,4 @@
-import React, { FC, useState, useRef } from 'react'
+import React, { FC, useState, useRef, useEffect } from 'react'
 import { Link, navigate, graphql, useStaticQuery } from 'gatsby'
 import styled from '@emotion/styled'
 import { globalHistory as history } from '@reach/router'
@@ -10,14 +10,19 @@ const Window = styled.div`
   margin-left: auto;
   margin-right: auto;
   width: auto;
+  max-height: 95vh;
+  overflow: scroll;
   background: rgb(30, 34, 41);
   color: white;
   box-shadow: rgba(0, 0, 0, 0.1) 1px 1px, rgba(0, 0, 0, 0.1) -1px -1px, rgba(0, 0, 0, 0.1) 1px -1px, rgba(0, 0, 0, 0.1) -1px 1px,
     rgba(0, 0, 0, 0.8) 0 0 70px;
   border-radius: 5px;
-  overflow: scroll;
 `
 const TitleBar = styled.div`
+  background: rgb(30, 34, 41);
+  position: sticky;
+  top: 0;
+  z-index: 100;
   text-align: center;
   h1 {
     font-size: 12px;
@@ -56,7 +61,7 @@ const TrafficLight = styled.div`
 `
 
 const Main = styled.div`
-  padding: 15px;
+  padding: 15px 15px 5px 15px;
   font-family: monospace;
   font-size: 16px;
   line-height: 1.5em;
@@ -88,6 +93,32 @@ const Main = styled.div`
     &:hover {
       background: rgb(199, 199, 199);
       color: rgb(40, 44, 51);
+    }
+  }
+`
+
+const Content = styled.div`
+  overflow: scroll;
+`
+
+const Footer = styled.div`
+  background: rgb(30, 34, 41);
+  padding: 10px 0;
+  position: sticky;
+  bottom: -1px; // Footer must overlap container by 1px to trigger stuck attribute used below
+  &[stuck] {
+    padding: 10px 0 9px 0;
+    &:after {
+      position: absolute;
+      bottom: 100%;
+      height: 50px;
+      width: 100%;
+      text-align: center;
+      padding-top: 30px;
+      color: rgba(255, 255, 255, 0.3);
+      content: '˅˅ scroll ˅˅';
+      background: linear-gradient(to top, rgb(30, 34, 41) 0%, rgba(30, 34, 41, 0) 90%);
+      pointer-events: none;
     }
   }
   ul.ls {
@@ -157,21 +188,41 @@ const Terminal: FC<TerminalProps> = ({ children, title }) => {
   const { location } = history
   const [value, setValue] = useState<string>()
   const promptRef = useRef<HTMLInputElement>(null)
+  const footerRef = useRef<HTMLInputElement>(null)
   const data = useStaticQuery(graphql`
-  query {
-    allMarkdownRemark(filter: {frontmatter: {layout: {eq: "page"}}}, sort: {order: ASC, fields: frontmatter___title}) {
-      edges {
-        node {
-          frontmatter {
-            title
-          }
-          fields {
-            slug
+    query {
+      allMarkdownRemark(filter: { frontmatter: { layout: { eq: "page" } } }, sort: { order: ASC, fields: frontmatter___title }) {
+        edges {
+          node {
+            frontmatter {
+              title
+            }
+            fields {
+              slug
+            }
           }
         }
       }
     }
-  }`)
+  `)
+
+  useEffect(() => {
+    let observer: IntersectionObserver
+    if (footerRef.current) {
+      observer = new IntersectionObserver(
+        ([e]) => {
+          e.target.toggleAttribute('stuck', e.intersectionRatio < 1)
+        },
+        { threshold: [1] }
+      )
+
+      observer.observe(footerRef.current)
+    }
+    return () => {
+      observer.disconnect()
+    }
+  }, [footerRef])
+
   const moveCursorToEnd = (e: any) => {
     const { value } = e.target
     e.target.selectionStart = value.length
@@ -189,12 +240,14 @@ const Terminal: FC<TerminalProps> = ({ children, title }) => {
       promptRef.current.focus()
     }
   }
-  const menuLinks = data.allMarkdownRemark.edges.map((edge: any)=>{
-    return {
-      name: edge.node.frontmatter.title,
-      link: edge.node.fields.slug
-    }
-  }).filter((item: MenuLink) => item.link !== location.pathname)
+  const menuLinks = data.allMarkdownRemark.edges
+    .map((edge: any) => {
+      return {
+        name: edge.node.frontmatter.title,
+        link: edge.node.fields.slug
+      }
+    })
+    .filter((item: MenuLink) => item.link !== location.pathname)
   const commands = menuLinks.reduce((obj: { [key: string]: { aliases?: string[]; action?: Function } }, item: MenuLink) => {
     obj[item.name] = {
       action: () => {
@@ -214,38 +267,40 @@ const Terminal: FC<TerminalProps> = ({ children, title }) => {
         <h1>you@localjo-portfolio: ~{title || location.pathname}</h1>
       </TitleBar>
       <Main className="terminal-main">
-        {children}
-        <p>
-          > <code>ls</code> <small># tap one of the options below</small>
-        </p>
-        <ul className="ls">
-          {menuLinks.map((item: MenuLink) => (
-            <li key={item.link}>
-              <Link to={item.link}>/{item.name}</Link>
-            </li>
-          ))}
-        </ul>
-        <div className="prompt">
-          >&nbsp;
-          <AutosizeInput ref={promptRef as any} autoFocus value={value} onChange={onChange} onSelect={moveCursorToEnd} />
-          {Object.keys(commands)
-            .filter(command => {
-              if (value && value.length > 0) {
-                return command.toLowerCase().includes(value.toLowerCase())
-              } else {
-                return false
-              }
-            })
-            .map((command, i, arr) => {
-              const isLast = i === arr.length - 1
-              return (
-                <small key={command}>
-                  {command}
-                  {isLast ? '' : ', '}
-                </small>
-              )
-            })}
-        </div>
+        <Content>{children}</Content>
+        <Footer ref={footerRef}>
+          <p>
+            > <code>ls</code> <small># tap one of the options below</small>
+          </p>
+          <ul className="ls">
+            {menuLinks.map((item: MenuLink) => (
+              <li key={item.link}>
+                <Link to={item.link}>/{item.name}</Link>
+              </li>
+            ))}
+          </ul>
+          <div className="prompt">
+            >&nbsp;
+            <AutosizeInput ref={promptRef as any} autoFocus value={value} onChange={onChange} onSelect={moveCursorToEnd} />
+            {Object.keys(commands)
+              .filter(command => {
+                if (value && value.length > 0) {
+                  return command.toLowerCase().includes(value.toLowerCase())
+                } else {
+                  return false
+                }
+              })
+              .map((command, i, arr) => {
+                const isLast = i === arr.length - 1
+                return (
+                  <small key={command}>
+                    {command}
+                    {isLast ? '' : ', '}
+                  </small>
+                )
+              })}
+          </div>
+        </Footer>
       </Main>
     </Window>
   )
