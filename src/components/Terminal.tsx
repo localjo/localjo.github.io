@@ -3,8 +3,9 @@ import { Link, navigate, graphql, useStaticQuery } from 'gatsby'
 import styled from '@emotion/styled'
 import { globalHistory as history } from '@reach/router'
 import AutosizeInput from 'react-input-autosize'
-import { colors } from '../styles/variables'
+import { colors, breakpoints } from '../styles/variables'
 import { lighten, transparentize, darken } from 'polished'
+import { getEmSize } from '../styles/mixins'
 
 const Window = styled.div`
   opacity: 0.9;
@@ -122,6 +123,36 @@ const Main = styled.div`
     }
     &.orange {
       background: ${transparentize(0.2, lighten(0.05, colors.orange))};
+    }
+  }
+  .emoji {
+    text-indent: -2em;
+    margin-left: 2em;
+  }
+  .columns {
+    @media (min-width: ${getEmSize(breakpoints.md)}em) {
+      columns: 2;
+    }
+  }
+  ul,
+  .section {
+    margin: 0;
+    -webkit-column-break-inside: avoid; /* Chrome, Safari */
+    page-break-inside: avoid; /* Theoretically FF 20+ */
+    break-inside: avoid-column; /* IE 11 */
+    display: table; /* Actually FF 20+ */
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li {
+      margin: 0;
+      padding: 0;
+    }
+    li:before {
+      content: '»';
+      padding-right: 0.5em;
     }
   }
   code,
@@ -318,7 +349,12 @@ const Terminal: FC<TerminalProps> = ({ children, title }) => {
       switch (e.keyCode) {
         case 13:
           const selected = commandNames.filter(command => command.toLowerCase().startsWith(value.toLowerCase()))[0]
-          commands[selected].action()
+          const command = commands[selected]
+          const { action } = command ? command : { action: () => {} }
+          if (typeof action === 'function') {
+            action()
+          }
+          setValue('')
           break
         case 9:
           e.preventDefault() // Prevents breaking focus
