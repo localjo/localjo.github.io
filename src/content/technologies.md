@@ -32,9 +32,9 @@ title: 'Technologies'
 
 # Other Skills
 
-[UI/UX](){class="badge"}
-[Technical Writing](){class="badge"}
-[Public Speaking](){class="badge"}
-[English (Native)](){class="badge"}
-[Spanish (Fluent)](){class="badge"}
-[Hungarian (Conversational)](){class="badge"}
+[UI/UX](#){class="badge"}
+[Technical Writing](#){class="badge"}
+[Public Speaking](#){class="badge"}
+[English (Native)](#){class="badge"}
+[Spanish (Fluent)](#){class="badge"}
+[Hungarian (Conversational)](#){class="badge"}
