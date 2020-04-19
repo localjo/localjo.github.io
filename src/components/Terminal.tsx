@@ -170,6 +170,73 @@ const Main = styled.div`
       color: ${colors.ui.terminal};
     }
   }
+  table {
+    font-size: 16px;
+    border: none;
+    th,
+    td {
+      vertical-align: top;
+      padding: 10px;
+      border: none;
+    }
+  }
+  .project-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .project {
+    background: ${transparentize(0.9, colors.white)};
+    padding: 15px;
+    margin-bottom: 15px;
+    width: 100%;
+    @media (min-width: ${getEmSize(breakpoints.lg)}em) {
+      width: 49%;
+    }
+    h2 {
+      /* Title */
+      margin: 0 0 1em 0;
+    }
+    p:nth-of-type(2) {
+      /* Description */
+      clear: both;
+    }
+    p:nth-of-type(1) {
+      /* Image */
+      float: left;
+      width: 245px;
+      max-height: 160px;
+      overflow: hidden;
+    }
+    h3:nth-of-type(1) {
+      /* Link Title */
+      padding-left: 15px;
+      overflow: hidden;
+    }
+    ul:nth-of-type(1) {
+      /* Links */
+      padding-left: 15px;
+      li:before {
+        content: '';
+        padding: 0;
+      }
+    }
+    h3:nth-of-type(2) {
+      /* Tech Title */
+      display: none;
+    }
+    ul:nth-of-type(2) {
+      /* Badges */
+      clear: both;
+      li {
+        display: inline-block;
+      }
+      li:before {
+        content: '';
+        padding: 0;
+      }
+    }
+  }
 `
 
 const Content = styled.div`
