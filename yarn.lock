@@ -5530,6 +5530,13 @@ gatsby-react-router-scroll@^2.1.0:
     scroll-behavior "^0.9.9"
     warning "^3.0.0"
 
+gatsby-remark-attr@^0.0.3:
+  version "0.0.3"
+  resolved "https://registry.yarnpkg.com/gatsby-remark-attr/-/gatsby-remark-attr-0.0.3.tgz#083d09656914311bf500d7b8030d84b147afa692"
+  integrity sha512-mh2oO+3OhstFd3XGvAGY2R5Deh6gxQKUnK9ae1VTnpWaXJOhA1GDfZDbRq64XFXcr9+6/gPBJTDfl5nXmxxriA==
+  dependencies:
+    remark-attr "^0.9.0"
+
 gatsby-remark-copy-linked-files@^2.1.0:
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/gatsby-remark-copy-linked-files/-/gatsby-remark-copy-linked-files-2.1.0.tgz#fdd1f2013b613087139bca8d5b76c4130ad8ae6b"
@@ -6462,6 +6469,11 @@ html-comment-regex@^1.1.0:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/html-comment-regex/-/html-comment-regex-1.1.2.tgz#97d4688aeb5c81886a364faa0cad1dda14d433a7"
   integrity sha512-P+M65QY2JQ5Y0G9KKdlDpo0zK+/OHptU5AaBwUfAIDJZk1MYf32Frm84EcOytfJE0t5JvkAnKlmjsXDnWzCJmQ==
+
+html-element-attributes@^2.0.0:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/html-element-attributes/-/html-element-attributes-2.2.1.tgz#ff397c7a3d6427064b117b6f36b45be08e79db93"
+  integrity sha512-gGTgCeQu+g1OFExZKWQ1LwbFXxLJ6cGdCGj64ByEaxatr/EPVc23D6Gxngb37ao+SNInP/sGu8FXxRsSxMm7aQ==
 
 html-entities@^1.2.0, html-entities@^1.2.1:
   version "1.2.1"
@@ -7955,6 +7967,11 @@ markdown-table@^1.1.0:
   version "1.1.3"
   resolved "https://registry.yarnpkg.com/markdown-table/-/markdown-table-1.1.3.tgz#9fcb69bcfdb8717bfd0398c6ec2d93036ef8de60"
   integrity sha512-1RUZVgQlpJSPWYbFSpmudq5nHY1doEIv89gBtF0s4gW1GF2XorxcA/70M5vq7rLv0a6mhOUccRsqkwhwLCIQ2Q==
+
+md-attr-parser@^1.3.0:
+  version "1.3.0"
+  resolved "https://registry.yarnpkg.com/md-attr-parser/-/md-attr-parser-1.3.0.tgz#23e1d507858746d4e84beb244c089799979cfce8"
+  integrity sha512-KTVlfU5Oxo/6kd0YZ2mLP3eWJj+5vzh5mBCxLo3yGl1fzHIgxmtadbE9tHb7TbUBi3XZbl+P0xKeGmakat135w==
 
 md5-file@^3.1.1:
   version "3.2.3"
@@ -10441,6 +10458,14 @@ relay-runtime@2.0.0:
   dependencies:
     "@babel/runtime" "^7.0.0"
     fbjs "^1.0.0"
+
+remark-attr@^0.9.0:
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/remark-attr/-/remark-attr-0.9.0.tgz#5b213c4e9815fa4f8c07cbaa674aeb525966b15a"
+  integrity sha512-Q2M/fJixf+wBxOmzSp7Ux6s7UzWoLFSGXxnfPG8frGXoxAXbUIs/XF8IVrLWmvqjZ8a66Eb02r4gsbJkIhLewQ==
+  dependencies:
+    html-element-attributes "^2.0.0"
+    md-attr-parser "^1.3.0"
 
 remark-parse@^5.0.0:
   version "5.0.0"

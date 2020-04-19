@@ -1,5 +1,6 @@
 import { dimensions, fonts, colors, breakpoints } from './variables'
 import { getEmSize } from './mixins'
+import { darken, transparentize } from 'polished'
 
 export default `
   html {
@@ -54,7 +55,7 @@ export default `
   table {
     width: 100%;
     margin-bottom: 1rem;
-    border: 1px solid ${colors.ui.light};
+    border: 1px solid ${darken(0.2, colors.white)};
     font-size: 85%;
     border-collapse: collapse;
   }
@@ -62,7 +63,7 @@ export default `
   td,
   th {
     padding: .25rem .5rem;
-    border: 1px solid ${colors.ui.light};
+    border: 1px solid ${darken(0.2, colors.white)};
   }
 
   th {
@@ -73,10 +74,10 @@ export default `
     tr {
       &:nth-of-type(odd) {
         td {
-          background-color: ${colors.ui.whisper};
+          background-color: ${transparentize(0.9, colors.white)};
         }
         tr {
-          background-color: ${colors.ui.whisper};
+          background-color: ${transparentize(0.9, colors.white)};
         }
       }
     }
@@ -136,14 +137,14 @@ export default `
     position: relative;
     margin: 1.5rem 0;
     border: 0;
-    border-top: 1px solid ${colors.ui.light};
+    border-top: 1px solid ${darken(0.2, colors.white)};
   }
 
   blockquote {
     margin: .8rem 0;
     padding: .5rem 1rem;
-    border-left: .25rem solid ${colors.ui.light};
-    color: ${colors.gray.calm};
+    border-left: .25rem solid ${darken(0.2, colors.white)};
+    color: ${darken(0.4, colors.white)};
 
     p {
       &:last-child {

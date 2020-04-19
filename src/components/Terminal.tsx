@@ -3,6 +3,8 @@ import { Link, navigate, graphql, useStaticQuery } from 'gatsby'
 import styled from '@emotion/styled'
 import { globalHistory as history } from '@reach/router'
 import AutosizeInput from 'react-input-autosize'
+import { colors } from '../styles/variables'
+import { lighten, transparentize, darken } from 'polished'
 
 const Window = styled.div`
   opacity: 0.9;
@@ -12,21 +14,22 @@ const Window = styled.div`
   width: auto;
   max-height: 95vh;
   overflow: scroll;
-  background: rgb(30, 34, 41);
-  color: white;
+  background: ${colors.ui.terminal};
+  color: ${colors.white};
   box-shadow: rgba(0, 0, 0, 0.1) 1px 1px, rgba(0, 0, 0, 0.1) -1px -1px, rgba(0, 0, 0, 0.1) 1px -1px, rgba(0, 0, 0, 0.1) -1px 1px,
     rgba(0, 0, 0, 0.8) 0 0 70px;
   border-radius: 5px;
 `
 const TitleBar = styled.div`
-  background: rgb(30, 34, 41);
+  background: ${colors.ui.terminal};
   position: sticky;
   top: 0;
   z-index: 100;
   text-align: center;
-  h1 {
+  span {
     font-size: 12px;
-    color: rgb(203, 203, 203);
+    font-weight: 500;
+    color: ${darken(0.2, colors.white)};
     padding: 8px 0 8px 0;
     margin: 0;
   }
@@ -45,17 +48,17 @@ const TrafficLight = styled.div`
     margin: 10px 0 0 10px;
     border-radius: 6px;
     appearance: none;
-    background: white;
+    background: ${darken(0.2, colors.white)};
     border: none;
     padding: 0;
     &.green {
-      background: rgb(99, 199, 86);
+      background: ${colors.ui.traffic.green};
     }
     &.yellow {
-      background: rgb(246, 193, 81);
+      background: ${colors.ui.traffic.yellow};
     }
     &.red {
-      background: rgb(236, 97, 86);
+      background: ${colors.ui.traffic.red};
     }
   }
 `
@@ -66,33 +69,74 @@ const Main = styled.div`
   font-size: 16px;
   line-height: 1.5em;
   min-height: 600px;
-  color: rgb(199, 199, 199);
+  color: ${darken(0.2, colors.white)};
   h1,
   h2,
   h3,
   h4,
   h5,
+  h6,
   small,
+  strong,
+  b,
+  em,
   p {
     font-size: inherit;
     color: inherit;
   }
+  hr {
+    border-style: dashed;
+  }
   small {
     opacity: 0.5;
   }
+  .badge {
+    white-space: nowrap;
+    background: ${darken(0.2, colors.white)};
+    color: ${colors.ui.terminal};
+    font-style: normal;
+    text-decoration: none;
+    display: inline-block;
+    padding: 0 0.4em;
+    margin: 0 0 0.6em 0;
+    &.yellow {
+      background:${transparentize(0.2, colors.yellow)};
+    }
+    &.blue {
+      background:${transparentize(0.2, colors.blue)};
+    }
+    &.teal {
+      background:${transparentize(0.2, colors.teal)};
+    }
+    &.purple {
+      background:${transparentize(0.2, lighten(0.25, colors.purple))};
+    }
+    &.green {
+      background:${transparentize(0.2, colors.green)};
+    }
+    &.pink {
+      background:${transparentize(0.2, colors.pink)};
+    }
+    &.red {
+      background:${transparentize(0.2, lighten(0.05, colors.red))};
+    }
+    &.orange {
+      background:${transparentize(0.2, lighten(0.05, colors.orange))};
+    }
+  }
   code,
   pre {
-    color: rgb(254, 125, 232);
+    color: ${colors.code};
     margin: 0;
     padding: 0;
     line-height: 1.1em;
   }
   a {
-    color: rgb(199, 199, 199);
+    color: ${darken(0.2, colors.white)};
     text-decoration: underline;
     &:hover {
-      background: rgb(199, 199, 199);
-      color: rgb(40, 44, 51);
+      background: ${darken(0.2, colors.white)};
+      color: ${colors.ui.terminal};
     }
   }
 `
@@ -102,7 +146,7 @@ const Content = styled.div`
 `
 
 const Footer = styled.div`
-  background: rgb(30, 34, 41);
+  background: ${colors.ui.terminal};
   padding: 10px 0;
   position: sticky;
   bottom: -1px; // Footer must overlap container by 1px to trigger stuck attribute used below
@@ -114,7 +158,7 @@ const Footer = styled.div`
       height: 50px;
       width: 100%;
       content: '';
-      background: linear-gradient(to top, rgb(30, 34, 41) 0%, rgba(30, 34, 41, 0) 90%);
+      background: linear-gradient(to top, ${colors.ui.terminal} 0%, ${transparentize(1, colors.ui.terminal)} 90%);
       pointer-events: none;
     }
     &:before {
@@ -123,7 +167,7 @@ const Footer = styled.div`
       width: 100%;
       content: '˅˅ scroll ˅˅';
       text-align: center;
-      color: rgba(255, 255, 255, 0.3);
+      color: ${transparentize(0.7, colors.white)};
       pointer-events: none;
     }
   }
@@ -151,7 +195,7 @@ const Footer = styled.div`
       border-right: 0.8em solid;
       margin-right: 0.2em;
       /* Text color with hidden caret */
-      text-shadow: 0 0 0 rgb(199, 199, 199);
+      text-shadow: 0 0 0 ${darken(0.2, colors.white)};
       color: transparent;
       &:focus {
         overflow: hidden;
@@ -169,7 +213,7 @@ const Footer = styled.div`
       border-right-color: transparent;
     }
     50% {
-      border-right-color: rgb(199, 199, 199);
+      border-right-color: ${darken(0.2, colors.white)};
     }
   }
 `
@@ -293,13 +337,13 @@ const Terminal: FC<TerminalProps> = ({ children, title }) => {
           <button className="yellow"></button>
           <button className="green"></button>
         </TrafficLight>
-        <h1>you@localjo-portfolio: ~{title || location.pathname}</h1>
+        <span>you@localjo-portfolio: ~{title || location.pathname}</span>
       </TitleBar>
       <Main className="terminal-main">
         <Content>{children}</Content>
         <Footer ref={footerRef}>
           <p>
-            > <code>ls</code> <small># tap one of the options below</small>
+            > ls <small># tap one of the options below</small>
           </p>
           <ul className="ls">
             {menuLinks.map((item: MenuLink) => (

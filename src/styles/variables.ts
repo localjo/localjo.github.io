@@ -1,24 +1,26 @@
 /* eslint-disable max-len */
 
 export const colors = {
-  brand: '#663399',
-  lilac: '#9d7cbf',
-  accent: '#ffb238',
-  success: '#37b635',
-  warning: '#ec1818',
+  brand: '#663399', // Primary, default header and links
+  yellow: 'rgb(241,217,29)', // JavaScript Brand Yellow
+  blue: 'rgb(24,122,191)', // TypeScript Brand Blue
+  purple: 'rgb(102, 51,153)', // Gatsby Brand Purple
+  green: 'rgb(104, 159, 99)', // Node JS Brand Green
+  pink: 'rgb(229,53,171)', // GraphQL Brand Pink
+  orange: 'rgb(241,101,41)', // HTML5 Brand Orange
+  red: 'rgb(204,52,45)', // Ruby Brand Red
+  teal: 'rgb(94,211,243)', // React Brand Teal
   ui: {
-    bright: '#e0d6eb',
-    light: '#f5f3f7',
-    whisper: 'rgba(255,255,255,0.1)'
+    terminal: 'rgb(30, 34, 41)', // Terminal Background
+    traffic: { // Terminal close buttons
+      red: 'rgb(236, 97, 86)',
+      yellow: 'rgb(246, 193, 81)',
+      green: 'rgb(99, 199, 86)'
+    }
   },
-  code: '#fcf6f0',
-  gray: {
-    dark: 'hsla(270, 17.119554496%, 0%, 0.92)',
-    copy: 'hsla(270, 15.797828016000002%, 0%, 0.88)',
-    calm: 'rgba(0, 0, 0, 0.54)'
-  },
-  white: '#fff',
-  black: '#000'
+  code: 'rgb(254, 125, 232)', // Default code/pre color
+  white: '#fff', // Used in header component, with polished
+  black: '#000' // Body text color, heading and strong reset
 }
 
 export const fonts = {

@@ -16,12 +16,12 @@ const IndexPage = () => {
             <p>I'm a Software Engineer and traveler and people call me</p>
             <ASCII text="Local Jo" />
             <br />
+            <p>I like to work with JavaScript/TypeScript, React,<br/> Python and related tools and frameworks.</p>
             <p>
-              I have 10 years of experience working for teams like <a href="">NASA</a> and the{' '}
-              <a href="">Humanitarian OpenStreetMap Team</a>.
+              I have 10 years of experience working for teams like<br/> <a href="">NASA</a> 🚀 and the{' '}
+              <a href="">Humanitarian OpenStreetMap Team</a> ❤️.
             </p>
-            <p>I like to work with JavaScript/TypeScript, React, Python and related tools and frameworks.</p>
-            <p>I'm interested in working with teams that have a mission or product I'm passionate about.</p>
+            <p>I'm interested in working with teams that have a<br/> mission or product I'm passionate about.</p>
           </Terminal>
         </Container>
       </Page>
