@@ -237,6 +237,38 @@ const Main = styled.div`
       }
     }
   }
+  .experience {
+    h3 {
+      padding: 10px;
+      background: ${transparentize(0.9, colors.white)};
+    }
+    a {
+      color: ${colors.blue};
+    }
+    p > em,
+    p > i {
+      color: ${transparentize(0.5, colors.white)};
+      padding: 10px;
+      a {
+        color: ${colors.ui.terminal};
+        background: ${colors.blue};
+        font-style: normal;
+        padding: 0 0.3em;
+      }
+    }
+    ul {
+      li {
+        margin-bottom: 1em;
+        &:before {
+          position: absolute;
+          right: 100%;
+        }
+      }
+      position: relative;
+      margin: 0 auto;
+      max-width: 80%;
+    }
+  }
 `
 
 const Content = styled.div`

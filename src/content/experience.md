@@ -3,6 +3,8 @@ layout: page
 title: 'Experience'
 ---
 
+<div class="experience">
+
 ### Full Stack Software Engineering Consultant
 
 _[Consultant](https://iamlocaljo.com/) (July 2014 to Present)_
@@ -23,9 +25,9 @@ _[Mokriya](https://mokriya.com/) (July 2018 to July 2019)_
 
 ### Full Stack Engineer
 
-_[NASA [Goddard Space Flight Center, GIBS/Worldview, ASRC Contract]](https://www.nasa.gov/goddard) (July 2017 to February 2018)_
+_[NASA [Goddard, GIBS/Worldview, ASRC Contract]](https://www.nasa.gov/goddard) (July 2017 to February 2018)_
 
-- Developer for [NASA Worldview](https://github.com/nasa-gibs/worldview)—a web app for browsing satellite imagery built with JavaScript and Python.
+- Developer for [NASA Worldview](https://github.com/nasa-gibs/worldview), a web app for browsing satellite imagery built with JavaScript and Python.
 - Saved our team thousands of dollars in engineers' time every week by replacing a manual QA process that took weeks with automated browser tests that ran in minutes, enabling us to iterate and ship new features quickly.
 - Reduced deployment time from over an hour to <5 minutes, allowing us to rapidly release new features and bug fixes.
 - Raised the bar for engineering practices and quality standards by implementing coding standards and code reviews.
@@ -54,3 +56,5 @@ _[OuterBox](https://www.outerboxdesign.com/) (August 2011 to July 2012)_
 _[NAS Recruitment Communications](http://www.nasrecruitment.com/) (2011)_
 
 _[Delta Media Group](https://www.deltamediagroup.com/) (2010 to 2011)_
+
+</div>
