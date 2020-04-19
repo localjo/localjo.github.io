@@ -1,22 +1,28 @@
 import React, { FC, useState, useEffect } from 'react'
 import figlet from 'figlet'
 // @ts-ignore
-import basicFont from 'figlet/importable-fonts/Basic.js'
+import slant from 'figlet/importable-fonts/Slant.js'
+// @ts-ignore
+import smallSlant from 'figlet/importable-fonts/Small Slant.js'
+import { desaturate } from 'polished'
 
 // @ts-ignore
-figlet.parseFont('Basic', basicFont)
+figlet.parseFont('Small Slant', smallSlant)
+// @ts-ignore
+figlet.parseFont('Slant', slant)
 
 interface ASCIIProps {
   text?: string
   rainbow?: boolean
+  large?: boolean
 }
 
-const ASCII: FC<ASCIIProps> = ({ text = 'Hello!', rainbow = true }) => {
+const ASCII: FC<ASCIIProps> = ({ text = 'Hello!', rainbow = true, large = false }) => {
   const [ascii, setAscii] = useState<string>(text)
 
   useEffect(() => {
     if (text) {
-      figlet.text(text, { font: 'Basic' }, (_err, data) => setAscii(data as string))
+      figlet.text(text, { font: large ? 'Slant' : 'Small Slant' }, (_err, data) => setAscii(data as string))
     }
   })
 
@@ -36,7 +42,7 @@ const ASCII: FC<ASCIIProps> = ({ text = 'Hello!', rainbow = true }) => {
         {lines.map((line, i) => {
           const [red, blue, green] = lineColors[i]
           return (
-            <pre key={i} className="rainbow" style={{ color: `rgb(${red},${green},${blue})` }}>
+            <pre key={i} className="rainbow" style={{ color: desaturate(0.2, `rgb(${red},${green},${blue})`) }}>
               {line}
             </pre>
           )
