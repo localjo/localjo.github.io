@@ -2,15 +2,49 @@
 
 module.exports = {
   siteMetadata: {
-    title: 'gatsby-starter-typescript-plus',
-    description: 'A starter kit for TypeScript-based Gatsby projects with sensible defaults.',
-    keywords: 'gatsbyjs, gatsby, javascript, sample, something',
-    siteUrl: 'https://gatsby-starter-typescript-plus.netlify.com',
+    title: 'Jo Sprague',
+    description: 'Senior Software Engineer',
+    keywords: 'python, javascript, typescript',
+    siteUrl: 'https://iamlocaljo.com',
     author: {
-      name: 'Resi Respati',
-      url: 'https://twitter.com/resir014',
-      email: 'resir014@gmail.com'
-    }
+      name: 'Jo Sprague',
+      url: 'https://tiamlocaljo.com',
+      email: 'josiah.sprague@gmail.com'
+    },
+    menuLinks: [
+      {
+        name: 'Home',
+        link: '/'
+      },
+      {
+        name: 'Code Samples',
+        link: '/code-samples/'
+      },
+      {
+        name: 'Experience',
+        link: '/experience/'
+      },
+      {
+        name: 'Technologies',
+        link: '/technologies/'
+      },
+      {
+        name: 'Blog',
+        link: 'https://localjo.blog/'
+      },
+      {
+        name: 'Links',
+        link: '/links/'
+      },
+      {
+        name: 'Sponsor Me',
+        link: '/sponsor/'
+      },
+      {
+        name: 'Hire Me',
+        link: '/hire/'
+      }
+    ]
   },
   plugins: [
     {

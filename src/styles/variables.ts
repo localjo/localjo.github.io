@@ -9,7 +9,7 @@ export const colors = {
   ui: {
     bright: '#e0d6eb',
     light: '#f5f3f7',
-    whisper: '#fbfafc'
+    whisper: 'rgba(255,255,255,0.1)'
   },
   code: '#fcf6f0',
   gray: {

@@ -1,4 +1,5 @@
 import React, { FC, useState, useRef } from 'react'
+import { Link, navigate, graphql, useStaticQuery } from 'gatsby'
 import styled from '@emotion/styled'
 import { globalHistory as history } from '@reach/router'
 import AutosizeInput from 'react-input-autosize'
@@ -12,7 +13,6 @@ const Window = styled.div`
   margin-left: auto;
   margin-right: auto;
   width: auto;
-  max-width: ${getEmSize(widths.md)}em;
   background: rgb(30, 34, 41);
   color: white;
   box-shadow: rgba(0, 0, 0, 0.1) 1px 1px, rgba(0, 0, 0, 0.1) -1px -1px, rgba(0, 0, 0, 0.1) 1px -1px, rgba(0, 0, 0, 0.1) -1px 1px,
@@ -150,10 +150,27 @@ interface TerminalProps {
   }
 }
 
-const Terminal: FC<TerminalProps> = ({ children, title, commands }) => {
+interface MenuLink {
+  name: string
+  link: string
+}
+
+const Terminal: FC<TerminalProps> = ({ children, title }) => {
   const { location } = history
   const [value, setValue] = useState<string>()
   const promptRef = useRef<HTMLInputElement>(null)
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          menuLinks {
+            name
+            link
+          }
+        }
+      }
+    }
+  `)
   const moveCursorToEnd = (e: any) => {
     const { value } = e.target
     e.target.selectionStart = value.length
@@ -171,11 +188,20 @@ const Terminal: FC<TerminalProps> = ({ children, title, commands }) => {
       promptRef.current.focus()
     }
   }
+  const menuLinks = data.site.siteMetadata.menuLinks.filter((item: MenuLink) => item.link !== location.pathname)
+  const commands = menuLinks.reduce((obj: { [key: string]: { aliases?: string[]; action?: Function } }, item: MenuLink) => {
+    obj[item.name] = {
+      action: () => {
+        console.log(item.link)
+      }
+    }
+    return obj
+  }, {})
   return (
     <Window onClick={handleWindowClick}>
       <TitleBar>
         <TrafficLight>
-          <button className="red"></button>
+          <button className="red" onClick={() => navigate('/')}></button>
           <button className="yellow"></button>
           <button className="green"></button>
         </TrafficLight>
@@ -183,23 +209,37 @@ const Terminal: FC<TerminalProps> = ({ children, title, commands }) => {
       </TitleBar>
       <Main className="terminal-main">
         {children}
-        {commands ? (
-          <div className="prompt">
-            >&nbsp;
-            <AutosizeInput ref={promptRef as any} autoFocus value={value} onChange={onChange} onSelect={moveCursorToEnd} />
-            {Object.keys(commands)
-              .filter(command => {
-                if (value && value.length > 0) {
-                  return command.includes(value)
-                } else {
-                  return false
-                }
-              })
-              .map(command => (
-                <small key={command}>{command}</small>
-              ))}
-          </div>
-        ) : null}
+        <p>
+          > <code>ls</code> <small># tap one of the options below</small>
+        </p>
+        <ul className="ls">
+          {menuLinks.map((item: MenuLink) => (
+            <li key={item.link}>
+              <Link to={item.link}>/{item.name}</Link>
+            </li>
+          ))}
+        </ul>
+        <div className="prompt">
+          >&nbsp;
+          <AutosizeInput ref={promptRef as any} autoFocus value={value} onChange={onChange} onSelect={moveCursorToEnd} />
+          {Object.keys(commands)
+            .filter(command => {
+              if (value && value.length > 0) {
+                return command.toLowerCase().includes(value.toLowerCase())
+              } else {
+                return false
+              }
+            })
+            .map((command, i, arr) => {
+              const isLast = i === arr.length - 1
+              return (
+                <small key={command}>
+                  {command}
+                  {isLast ? '' : ', '}
+                </small>
+              )
+            })}
+        </div>
       </Main>
     </Window>
   )
