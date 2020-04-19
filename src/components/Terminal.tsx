@@ -228,6 +228,24 @@ const Terminal: FC<TerminalProps> = ({ children, title }) => {
     }
   }, [footerRef])
 
+  const menuLinks = data.allMarkdownRemark.edges
+    .map((edge: any) => {
+      return {
+        name: edge.node.frontmatter.title,
+        link: edge.node.fields.slug
+      }
+    })
+    .filter((item: MenuLink) => item.link !== location.pathname)
+  const commands = menuLinks.reduce((obj: { [key: string]: { aliases?: string[]; action?: Function } }, item: MenuLink) => {
+    obj[item.name] = {
+      action: () => {
+        navigate(item.link)
+      }
+    }
+    return obj
+  }, {})
+  const commandNames = Object.keys(commands)
+
   const moveCursorToEnd = (e: any) => {
     const { value } = e.target
     e.target.selectionStart = value.length
@@ -245,23 +263,22 @@ const Terminal: FC<TerminalProps> = ({ children, title }) => {
       promptRef.current.focus()
     }
   }
-  const menuLinks = data.allMarkdownRemark.edges
-    .map((edge: any) => {
-      return {
-        name: edge.node.frontmatter.title,
-        link: edge.node.fields.slug
-      }
-    })
-    .filter((item: MenuLink) => item.link !== location.pathname)
-  const commands = menuLinks.reduce((obj: { [key: string]: { aliases?: string[]; action?: Function } }, item: MenuLink) => {
-    obj[item.name] = {
-      action: () => {
-        console.log(item.link)
+  const handleKeyDown = (e: React.KeyboardEvent) => {
+    if (value && value.length > 0) {
+      e.preventDefault()
+      switch (e.keyCode) {
+        case 13:
+          const selected = commandNames.filter(command => command.toLowerCase().startsWith(value.toLowerCase()))[0]
+          commands[selected].action()
+          break
+        case 9:
+          const next = commandNames.filter(command => command.toLowerCase().startsWith(value.toLowerCase()))[0]
+          setValue(next.toLowerCase())
+          break
+        default:
       }
     }
-    return obj
-  }, {})
-  const commandNames = Object.keys(commands).map(c => c.toLowerCase())
+  }
   return (
     <Window onClick={handleWindowClick}>
       <TitleBar>
@@ -287,11 +304,18 @@ const Terminal: FC<TerminalProps> = ({ children, title }) => {
           </ul>
           <div className="prompt">
             >&nbsp;
-            <AutosizeInput ref={promptRef as any} autoFocus value={value} onChange={handleChange} onSelect={moveCursorToEnd} />
+            <AutosizeInput
+              ref={promptRef as any}
+              autoFocus
+              value={value}
+              onChange={handleChange}
+              onSelect={moveCursorToEnd}
+              onKeyDown={handleKeyDown}
+            />
             {commandNames
               .filter(command => {
                 if (value && value.length > 0) {
-                  return command.startsWith(value.toLowerCase())
+                  return command.toLowerCase().startsWith(value.toLowerCase())
                 } else {
                   return false
                 }
@@ -301,7 +325,7 @@ const Terminal: FC<TerminalProps> = ({ children, title }) => {
                 const isFirst = i === 0
                 return (
                   <small key={command} style={isFirst ? { opacity: 0.7, position: 'relative', left: '-1em' } : {}}>
-                    {isFirst && value ? command.replace(value, '') : command}
+                    {isFirst && value ? command.toLowerCase().replace(value, '') : command.toLowerCase()}
                     {isLast ? '' : ', '}
                   </small>
                 )
