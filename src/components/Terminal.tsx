@@ -295,9 +295,9 @@ const Footer = styled.div`
       position: absolute;
       top: -5px;
       width: 100%;
-      content: '˅˅ scroll ˅˅';
+      content: '˅˅ scroll for more ˅˅';
       text-align: center;
-      color: ${transparentize(0.7, colors.white)};
+      color: ${transparentize(0.8, colors.white)};
       pointer-events: none;
     }
   }
