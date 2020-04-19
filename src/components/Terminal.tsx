@@ -119,7 +119,7 @@ const Footer = styled.div`
     }
     &:before {
       position: absolute;
-      top:-5px;
+      top: -5px;
       width: 100%;
       content: '˅˅ scroll ˅˅';
       text-align: center;
@@ -156,8 +156,7 @@ const Footer = styled.div`
       &:focus {
         overflow: hidden;
         white-space: nowrap;
-        padding-right: 1px;
-        vertical-align: bottom;
+        padding-right: 0;
         display: inline-block;
         animation: blink-caret 1.2s step-end infinite;
       }
@@ -233,9 +232,9 @@ const Terminal: FC<TerminalProps> = ({ children, title }) => {
     const { value } = e.target
     e.target.selectionStart = value.length
   }
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = e.target
-    setValue(value.slice(0, 50))
+    setValue(value.toLowerCase().slice(0, 50))
     e.target.selectionStart = value.length
   }
   const handleWindowClick = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -262,6 +261,7 @@ const Terminal: FC<TerminalProps> = ({ children, title }) => {
     }
     return obj
   }, {})
+  const commandNames = Object.keys(commands).map(c => c.toLowerCase())
   return (
     <Window onClick={handleWindowClick}>
       <TitleBar>
@@ -287,20 +287,21 @@ const Terminal: FC<TerminalProps> = ({ children, title }) => {
           </ul>
           <div className="prompt">
             >&nbsp;
-            <AutosizeInput ref={promptRef as any} autoFocus value={value} onChange={onChange} onSelect={moveCursorToEnd} />
-            {Object.keys(commands)
+            <AutosizeInput ref={promptRef as any} autoFocus value={value} onChange={handleChange} onSelect={moveCursorToEnd} />
+            {commandNames
               .filter(command => {
                 if (value && value.length > 0) {
-                  return command.toLowerCase().includes(value.toLowerCase())
+                  return command.startsWith(value.toLowerCase())
                 } else {
                   return false
                 }
               })
               .map((command, i, arr) => {
                 const isLast = i === arr.length - 1
+                const isFirst = i === 0
                 return (
-                  <small key={command}>
-                    {command}
+                  <small key={command} style={isFirst ? { opacity: 0.7, position: 'relative', left: '-1em' } : {}}>
+                    {isFirst && value ? command.replace(value, '') : command}
                     {isLast ? '' : ', '}
                   </small>
                 )
