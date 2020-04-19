@@ -5,6 +5,7 @@ import Page from '../components/Page'
 import Container from '../components/Container'
 import Terminal from '../components/Terminal'
 import IndexLayout from '../layouts'
+import ASCII from '../components/ASCII'
 
 interface PageTemplateProps {
   data: {
@@ -24,17 +25,23 @@ interface PageTemplateProps {
       frontmatter: {
         title: string
       }
+      fields: {
+        slug: string
+      }
     }
   }
 }
 
 const PageTemplate: React.FC<PageTemplateProps> = ({ data }) => {
+  console.log(data)
   return (
     <IndexLayout>
       <Page>
         <Container>
           <Terminal>
-            <h1>{data.markdownRemark.frontmatter.title}</h1>
+            <p>Parsing {data.markdownRemark.fields.slug.replace(/\//g, '')}.md...</p>
+            <ASCII text={data.markdownRemark.frontmatter.title} />
+            <br />
             {/* eslint-disable-next-line react/no-danger */}
             <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
           </Terminal>
@@ -60,6 +67,9 @@ export const query = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       excerpt
+      fields {
+        slug
+      }
       frontmatter {
         title
       }
