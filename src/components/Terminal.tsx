@@ -236,6 +236,12 @@ const Terminal: FC<TerminalProps> = ({ children, title }) => {
       }
     })
     .filter((item: MenuLink) => item.link !== location.pathname)
+  if (location.pathname !== '/') {
+    menuLinks.push({
+      name: 'Home',
+      link: '/'
+    })
+  }
   const commands = menuLinks.reduce((obj: { [key: string]: { aliases?: string[]; action?: Function } }, item: MenuLink) => {
     obj[item.name] = {
       action: () => {
@@ -265,13 +271,13 @@ const Terminal: FC<TerminalProps> = ({ children, title }) => {
   }
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (value && value.length > 0) {
-      e.preventDefault()
       switch (e.keyCode) {
         case 13:
           const selected = commandNames.filter(command => command.toLowerCase().startsWith(value.toLowerCase()))[0]
           commands[selected].action()
           break
         case 9:
+          e.preventDefault() // Prevents breaking focus
           const next = commandNames.filter(command => command.toLowerCase().startsWith(value.toLowerCase()))[0]
           setValue(next.toLowerCase())
           break
