@@ -12,13 +12,14 @@
   "scripts": {
     "build": "gatsby build",
     "clean": "rimraf public",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public",
+    "deploy": "gatsby build --prefix-paths && gh-pages -d public -b master",
     "dev": "gatsby develop",
     "format": "prettier --write \"src/**/*.{ts,tsx,md}\"",
     "lint": "eslint 'src/**/*.{ts,tsx}'",
     "start": "npm run dev",
     "test": "npm run type-check && npm run lint",
-    "type-check": "tsc"
+    "type-check": "tsc",
+    "ghphelp": "gh-pages --help"
   },
   "engines": {
     "node": ">=8.0.0"
