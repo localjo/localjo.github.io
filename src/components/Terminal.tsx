@@ -4,9 +4,6 @@ import styled from '@emotion/styled'
 import { globalHistory as history } from '@reach/router'
 import AutosizeInput from 'react-input-autosize'
 
-import { widths } from '../styles/variables'
-import { getEmSize } from '../styles/mixins'
-
 const Window = styled.div`
   opacity: 0.9;
   position: relative;
@@ -62,7 +59,7 @@ const Main = styled.div`
   padding: 15px;
   font-family: monospace;
   font-size: 16px;
-  line-height: 1.2em;
+  line-height: 1.5em;
   min-height: 600px;
   color: rgb(199, 199, 199);
   h1,
@@ -83,6 +80,7 @@ const Main = styled.div`
     color: rgb(254, 125, 232);
     margin: 0;
     padding: 0;
+    line-height: 1.1em;
   }
   a {
     color: rgb(199, 199, 199);
@@ -160,17 +158,20 @@ const Terminal: FC<TerminalProps> = ({ children, title }) => {
   const [value, setValue] = useState<string>()
   const promptRef = useRef<HTMLInputElement>(null)
   const data = useStaticQuery(graphql`
-    query {
-      site {
-        siteMetadata {
-          menuLinks {
-            name
-            link
+  query {
+    allMarkdownRemark(filter: {frontmatter: {layout: {eq: "page"}}}, sort: {order: ASC, fields: frontmatter___title}) {
+      edges {
+        node {
+          frontmatter {
+            title
+          }
+          fields {
+            slug
           }
         }
       }
     }
-  `)
+  }`)
   const moveCursorToEnd = (e: any) => {
     const { value } = e.target
     e.target.selectionStart = value.length
@@ -188,7 +189,12 @@ const Terminal: FC<TerminalProps> = ({ children, title }) => {
       promptRef.current.focus()
     }
   }
-  const menuLinks = data.site.siteMetadata.menuLinks.filter((item: MenuLink) => item.link !== location.pathname)
+  const menuLinks = data.allMarkdownRemark.edges.map((edge: any)=>{
+    return {
+      name: edge.node.frontmatter.title,
+      link: edge.node.fields.slug
+    }
+  }).filter((item: MenuLink) => item.link !== location.pathname)
   const commands = menuLinks.reduce((obj: { [key: string]: { aliases?: string[]; action?: Function } }, item: MenuLink) => {
     obj[item.name] = {
       action: () => {

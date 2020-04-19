@@ -10,41 +10,7 @@ module.exports = {
       name: 'Jo Sprague',
       url: 'https://tiamlocaljo.com',
       email: 'josiah.sprague@gmail.com'
-    },
-    menuLinks: [
-      {
-        name: 'Home',
-        link: '/'
-      },
-      {
-        name: 'Code Samples',
-        link: '/code-samples/'
-      },
-      {
-        name: 'Experience',
-        link: '/experience/'
-      },
-      {
-        name: 'Technologies',
-        link: '/technologies/'
-      },
-      {
-        name: 'Blog',
-        link: 'https://localjo.blog/'
-      },
-      {
-        name: 'Links',
-        link: '/links/'
-      },
-      {
-        name: 'Sponsor Me',
-        link: '/sponsor/'
-      },
-      {
-        name: 'Hire Me',
-        link: '/hire/'
-      }
-    ]
+    }
   },
   plugins: [
     {
