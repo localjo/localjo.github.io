@@ -113,11 +113,17 @@ const Footer = styled.div`
       bottom: 100%;
       height: 50px;
       width: 100%;
-      text-align: center;
-      padding-top: 30px;
-      color: rgba(255, 255, 255, 0.3);
-      content: '˅˅ scroll ˅˅';
+      content: '';
       background: linear-gradient(to top, rgb(30, 34, 41) 0%, rgba(30, 34, 41, 0) 90%);
+      pointer-events: none;
+    }
+    &:before {
+      position: absolute;
+      top:-5px;
+      width: 100%;
+      content: '˅˅ scroll ˅˅';
+      text-align: center;
+      color: rgba(255, 255, 255, 0.3);
       pointer-events: none;
     }
   }
