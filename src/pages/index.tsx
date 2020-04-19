@@ -24,7 +24,11 @@ const IndexPage = () => {
             <p className="emoji">
               🚀 I have 10 years of experience working for teams like
               <br />
-              <a href="">NASA</a> and the <a href="">Humanitarian OpenStreetMap Team</a>.
+              <a href="https://github.com/nasa-gibs/worldview/pulls?utf8=%E2%9C%93&q=+is%3Apr+author%3Alocaljo+">NASA</a> and the{' '}
+              <a href="https://github.com/hotosm/MapCampaigner/pulls?utf8=%E2%9C%93&q=is%3Apr+author%3Alocaljo+">
+                Humanitarian OpenStreetMap Team
+              </a>
+              .
             </p>
             <p className="emoji">
               ❤️ I'm interested in working with teams that have a<br />
