@@ -80,23 +80,23 @@ I built this app to learn Solidity. It mimics a simple Twitter poll with the vot
 
 <div class="project">
 
-## Kanban Board
+## Encyclopedia CLI
 
-[![Screenshot](/screenshots/kanban-demo.png)](http://iamlocaljo.com/kanban-takehome/)
+[![Screenshot](/screenshots/wikipedia-cli.png)](https://github.com/localjo/encyclopedia-cli)
 
 ### Links
 
-- [Live Demo](http://iamlocaljo.com/kanban-takehome/){class="green badge"}
-- [Code Repo](https://github.com/localjo/kanban-takehome){class="badge"}
+- [Code Repo](https://github.com/localjo/encyclopedia-cli){class="badge"}
 
-A basic Kanban board I built as a Trello clone to try out some new technologies.
+A demo application that allows reading a Wikipedia from the command line. Supports any MediaWiki instance and language.
 
 ### Technology
 
 - [JavaScript](#){class="yellow badge"}
-- [React](#){class="teal badge"}
-- [CSS](#){class="pink badge"}
-- [React Drag n Drop](#){class="badge"}
+- [Bash](#){class="badge"}
+- [Cliffy](#){class="badge"}
+- [Lodash](#){class="badge"}
+- [Wikipedia API](#){class="badge"}
 - [Jest](#){class="red badge"}
 
 </div>
@@ -124,23 +124,23 @@ A demo of a very fast search component I built while working on NASA Worldview t
 
 <div class="project">
 
-## Encyclopedia CLI
+## Kanban Board
 
-[![Screenshot](/screenshots/wikipedia-cli.png)](https://github.com/localjo/encyclopedia-cli)
+[![Screenshot](/screenshots/kanban-demo.png)](http://iamlocaljo.com/kanban-takehome/)
 
 ### Links
 
-- [Code Repo](https://github.com/localjo/encyclopedia-cli){class="badge"}
+- [Live Demo](http://iamlocaljo.com/kanban-takehome/){class="green badge"}
+- [Code Repo](https://github.com/localjo/kanban-takehome){class="badge"}
 
-A demo application that allows reading a Wikipedia from the command line. Supports any MediaWiki instance and language.
+A basic Kanban board I built as a Trello clone to try out some new technologies.
 
 ### Technology
 
 - [JavaScript](#){class="yellow badge"}
-- [Bash](#){class="badge"}
-- [Cliffy](#){class="badge"}
-- [Lodash](#){class="badge"}
-- [Wikipedia API](#){class="badge"}
+- [React](#){class="teal badge"}
+- [CSS](#){class="pink badge"}
+- [React Drag n Drop](#){class="badge"}
 - [Jest](#){class="red badge"}
 
 </div>
