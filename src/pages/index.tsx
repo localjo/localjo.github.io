@@ -14,14 +14,22 @@ const IndexPage = () => {
           <Terminal title="/.welcome">
             <h1>Hello, I'm Jo Sprague</h1>
             <p>I'm a Software Engineer and traveler and people call me</p>
-            <ASCII text="Local Jo" />
+            <ASCII text="Local Jo" large={true} />
             <br />
-            <p>I like to work with JavaScript/TypeScript, React,<br/> Python and related tools and frameworks.</p>
-            <p>
-              I have 10 years of experience working for teams like<br/> <a href="">NASA</a> 🚀 and the{' '}
-              <a href="">Humanitarian OpenStreetMap Team</a> ❤️.
+            <p className="emoji">
+              ✨ I like to work with JavaScript/TypeScript, React,
+              <br />
+              Python and related tools and frameworks.
             </p>
-            <p>I'm interested in working with teams that have a<br/> mission or product I'm passionate about.</p>
+            <p className="emoji">
+              🚀 I have 10 years of experience working for teams like
+              <br />
+              <a href="">NASA</a> and the <a href="">Humanitarian OpenStreetMap Team</a>.
+            </p>
+            <p className="emoji">
+              ❤️ I'm interested in working with teams that have a<br />
+              mission or product I'm passionate about.
+            </p>
           </Terminal>
         </Container>
       </Page>
