@@ -335,6 +335,7 @@ const Footer = styled.div`
         white-space: nowrap;
         padding-right: 0;
         display: inline-block;
+        outline: none;
         animation: blink-caret 1.2s step-end infinite;
       }
     }
