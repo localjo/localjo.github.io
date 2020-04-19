@@ -15,7 +15,7 @@
   "scripts": {
     "build": "gatsby build",
     "clean": "rimraf public",
-    "deploy": "gatsby build --prefix-paths && cp .CNAME public/ && gh-pages -d public -b master",
+    "deploy": "gatsby build --prefix-paths && cp CNAME public/ && gh-pages -d public -b master",
     "dev": "gatsby develop",
     "format": "prettier --write \"src/**/*.{ts,tsx,md}\"",
     "lint": "eslint 'src/**/*.{ts,tsx}'",
