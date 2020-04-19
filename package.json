@@ -1,11 +1,14 @@
 {
-  "name": "gatsby-starter-typescript-plus",
-  "description": "A starter kit for TypeScript-based Gatsby projects with sensible defaults.",
+  "name": "iamlocaljo.com",
+  "description": "Software Engineer, TypeScript/React/Python",
   "version": "1.0.0",
   "private": true,
-  "author": "Resi Respati <resir014@gmail.com>",
+  "author": "Jo Sprague <josiah.sprague@gmail.com>",
   "keywords": [
-    "gatsby"
+    "react",
+    "typescript",
+    "python",
+    "javascript"
   ],
   "license": "MIT",
   "main": "n/a",

@@ -8,7 +8,7 @@ module.exports = {
     siteUrl: 'https://iamlocaljo.com',
     author: {
       name: 'Jo Sprague',
-      url: 'https://tiamlocaljo.com',
+      url: 'https://iamlocaljo.com',
       email: 'josiah.sprague@gmail.com'
     }
   },
