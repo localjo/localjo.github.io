@@ -18,8 +18,7 @@
     "lint": "eslint 'src/**/*.{ts,tsx}'",
     "start": "npm run dev",
     "test": "npm run type-check && npm run lint",
-    "type-check": "tsc",
-    "ghphelp": "gh-pages --help"
+    "type-check": "tsc"
   },
   "engines": {
     "node": ">=8.0.0"
