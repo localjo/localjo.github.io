@@ -20,6 +20,7 @@ module.exports = {
         path: `${__dirname}/src/content`
       }
     },
+    `gatsby-plugin-offline`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
