@@ -2,9 +2,9 @@
 
 module.exports = {
   siteMetadata: {
-    title: 'Jo Sprague',
-    description: 'Senior Software Engineer',
-    keywords: 'python, javascript, typescript',
+    title: 'Jo Sprague - Software Engineer',
+    description: `I work with JavaScript/TypeScript, React, Python and related tools and frameworks. I'm interested in working with teams that have a mission or product I'm passionate about.`,
+    keywords: 'javascript, typescript, react, python, humanitarian',
     siteUrl: 'https://iamlocaljo.com',
     author: {
       name: 'Jo Sprague',
@@ -18,6 +18,24 @@ module.exports = {
       options: {
         name: 'content',
         path: `${__dirname}/src/content`
+      }
+    },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `Jo Sprague's Portfolio`,
+        short_name: `JS Portfolio`,
+        start_url: `/`,
+        background_color: `#AFB2B7`,
+        theme_color: `#AFB2B7`,
+        display: `browser`,
+        icon: `src/images/icon.png`
+      }
+    },
+    {
+      resolve: 'gatsby-plugin-html-attributes',
+      options: {
+        lang: 'en'
       }
     },
     {
