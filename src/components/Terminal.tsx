@@ -470,7 +470,7 @@ const Terminal: FC<TerminalProps> = ({ children, title }) => {
   }
   return (
     <Window onClick={handleWindowClick}>
-      <TitleBar>
+      <TitleBar aria-hidden="true">
         <TrafficLight>
           <button className="red" onClick={() => navigate('/')}></button>
           <button className="yellow"></button>
@@ -481,9 +481,7 @@ const Terminal: FC<TerminalProps> = ({ children, title }) => {
       <Main className="terminal-main">
         <Content>{children}</Content>
         <Footer ref={footerRef}>
-          <p>
-            > ls <small># tap one of the options below</small>
-          </p>
+          <p aria-hidden="true">> ls</p>
           <ul className="ls">
             {menuLinks.map((item: MenuLink) => (
               <li key={item.link}>
@@ -492,9 +490,10 @@ const Terminal: FC<TerminalProps> = ({ children, title }) => {
             ))}
           </ul>
           <div className="prompt">
-            >&nbsp;
+            <span aria-hidden="true">&nbsp;</span>
             <AutosizeInput
               ref={promptRef as any}
+              aria-label="Navigate to page"
               autoFocus
               value={value}
               onChange={handleChange}
