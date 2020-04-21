@@ -515,7 +515,7 @@ const Terminal: FC<TerminalProps> = ({ children, title }) => {
       <Main className="terminal-main">
         <Content>{children}</Content>
         <Footer ref={footerRef}>
-          <p aria-label="Toggle navigation" aria-controls="navbarCollapse" aria-expanded={navOpen} onClick={() => setNavOpen(!navOpen)}>
+          <p aria-label="Toggle navigation" onClick={() => setNavOpen(!navOpen)}>
             > nav {!navOpen ? <small># tap for menu</small> : null}
           </p>
           {navOpen ? (
