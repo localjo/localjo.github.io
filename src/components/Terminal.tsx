@@ -54,16 +54,28 @@ const TrafficLight = styled.div`
     border-radius: 6px;
     appearance: none;
     background: ${darken(0.2, colors.white)};
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 8px;
     border: none;
     padding: 0;
     &.green {
-      background: ${colors.ui.traffic.green};
+      background-color: ${colors.ui.traffic.green};
+      &:hover {
+        background-image: url(./fullscreen-button.svg);
+      }
     }
     &.yellow {
-      background: ${colors.ui.traffic.yellow};
+      background-color: ${colors.ui.traffic.yellow};
+      &:hover {
+        background-image: url(./minimize-button.svg);
+      }
     }
     &.red {
-      background: ${colors.ui.traffic.red};
+      background-color: ${colors.ui.traffic.red};
+      &:hover {
+        background-image: url(./close-button.svg);
+      }
     }
   }
 `

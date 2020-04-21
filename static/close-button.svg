@@ -1,0 +1,5 @@
+<svg viewBox="0 0 12 12" style="shape-rendering:geometricPrecision;text-rendering:geometricPrecision;image-rendering:optimizeQuality;" fill-rule="evenodd" clip-rule="evenodd" xmlns="http://www.w3.org/2000/svg">
+  <g transform="matrix(0.012486, 0, 0, 0.012486, 0.715031, 0.715031)">
+    <path fill="rgba(0,0,0,0.6)" d="M423 272l217 -217c99,-99 251,53 151,152l-216 216 216 217c100,99 -52,251 -151,151l-217 -216 -216 216c-99,100 -251,-52 -152,-151l217 -217 -217 -216c-99,-99 53,-251 152,-152l216 217z"/>
+  </g>
+</svg>
