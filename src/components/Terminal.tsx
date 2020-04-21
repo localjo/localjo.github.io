@@ -273,6 +273,7 @@ const Main = styled.div`
 
 const Content = styled.div`
   overflow: scroll;
+  overflow-x: hidden;
 `
 
 const Footer = styled.div`
@@ -370,6 +371,7 @@ interface MenuLink {
 const Terminal: FC<TerminalProps> = ({ children, title }) => {
   const { location } = history
   const [value, setValue] = useState<string>()
+  const [navOpen, setNavOpen] = useState<boolean>(false)
   const promptRef = useRef<HTMLInputElement>(null)
   const footerRef = useRef<HTMLInputElement>(null)
   const data = useStaticQuery(graphql`
@@ -390,6 +392,13 @@ const Terminal: FC<TerminalProps> = ({ children, title }) => {
   `)
 
   useEffect(() => {
+    const handleSetNavState = () => {
+      if (footerRef.current && footerRef.current.offsetWidth < breakpoints.sm) {
+        setNavOpen(false)
+      } else {
+        setNavOpen(true)
+      }
+    }
     let observer: IntersectionObserver
     if (footerRef.current) {
       observer = new IntersectionObserver(
@@ -398,11 +407,13 @@ const Terminal: FC<TerminalProps> = ({ children, title }) => {
         },
         { threshold: [1] }
       )
-
       observer.observe(footerRef.current)
+      handleSetNavState()
     }
+    window.addEventListener('resize', handleSetNavState)
     return () => {
       observer.disconnect()
+      window.removeEventListener('resize', handleSetNavState)
     }
   }, [footerRef])
 
@@ -442,8 +453,7 @@ const Terminal: FC<TerminalProps> = ({ children, title }) => {
   const handleWindowClick = (e: React.MouseEvent<HTMLDivElement>) => {
     const isPromptChild = (e.target as HTMLInputElement).closest('.prompt')
     const isPrompt = (e.target as HTMLInputElement).classList.contains('prompt')
-    const isTerminalMain = (e.target as HTMLInputElement).classList.contains('terminal-main')
-    if ((isPrompt || isPromptChild || isTerminalMain) && promptRef.current) {
+    if ((isPrompt || isPromptChild) && promptRef.current) {
       promptRef.current.focus()
     }
   }
@@ -461,8 +471,8 @@ const Terminal: FC<TerminalProps> = ({ children, title }) => {
           break
         case 9:
           e.preventDefault() // Prevents breaking focus
-          const next = commandNames.filter(command => command.toLowerCase().startsWith(value.toLowerCase()))[0]
-          setValue(next.toLowerCase())
+          const next = commandNames.filter(command => command && command.toLowerCase().startsWith(value.toLowerCase()))[0]
+          next && setValue(next.toLowerCase())
           break
         default:
       }
@@ -481,44 +491,50 @@ const Terminal: FC<TerminalProps> = ({ children, title }) => {
       <Main className="terminal-main">
         <Content>{children}</Content>
         <Footer ref={footerRef}>
-          <p aria-hidden="true">> ls</p>
-          <ul className="ls">
-            {menuLinks.map((item: MenuLink) => (
-              <li key={item.link}>
-                <Link to={item.link}>/{item.name}</Link>
-              </li>
-            ))}
-          </ul>
-          <div className="prompt">
-            <span aria-hidden="true">&nbsp;</span>
-            <AutosizeInput
-              ref={promptRef as any}
-              aria-label="Navigate to page"
-              autoFocus
-              value={value}
-              onChange={handleChange}
-              onSelect={moveCursorToEnd}
-              onKeyDown={handleKeyDown}
-            />
-            {commandNames
-              .filter(command => {
-                if (value && value.length > 0) {
-                  return command.toLowerCase().startsWith(value.toLowerCase())
-                } else {
-                  return false
-                }
-              })
-              .map((command, i, arr) => {
-                const isLast = i === arr.length - 1
-                const isFirst = i === 0
-                return (
-                  <small key={command} style={isFirst ? { opacity: 0.7, position: 'relative', left: '-1em' } : {}}>
-                    {isFirst && value ? command.toLowerCase().replace(value, '') : command.toLowerCase()}
-                    {isLast ? '' : ', '}
-                  </small>
-                )
-              })}
-          </div>
+          <p aria-label="Toggle navigation" aria-controls="navbarCollapse" aria-expanded={navOpen} onClick={() => setNavOpen(!navOpen)}>
+            > nav {!navOpen ? <small># tap for menu</small> : null}
+          </p>
+          {navOpen ? (
+            <>
+              <ul className="ls">
+                {menuLinks.map((item: MenuLink) => (
+                  <li key={item.link}>
+                    <Link to={item.link}>/{item.name}</Link>
+                  </li>
+                ))}
+              </ul>
+              <div className="prompt">
+                <span aria-hidden="true">>&nbsp;</span>
+                <AutosizeInput
+                  ref={promptRef as any}
+                  aria-label="Navigate to page"
+                  autoFocus
+                  value={value}
+                  onChange={handleChange}
+                  onSelect={moveCursorToEnd}
+                  onKeyDown={handleKeyDown}
+                />
+                {commandNames
+                  .filter(command => {
+                    if (value && value.length > 0) {
+                      return command.toLowerCase().startsWith(value.toLowerCase())
+                    } else {
+                      return false
+                    }
+                  })
+                  .map((command, i, arr) => {
+                    const isLast = i === arr.length - 1
+                    const isFirst = i === 0
+                    return (
+                      <small key={command} style={isFirst ? { opacity: 0.7, position: 'relative', left: '-1em' } : {}}>
+                        {isFirst && value ? command.toLowerCase().replace(value, '') : command.toLowerCase()}
+                        {isLast ? '' : ', '}
+                      </small>
+                    )
+                  })}
+              </div>
+            </>
+          ) : null}
         </Footer>
       </Main>
     </Window>
