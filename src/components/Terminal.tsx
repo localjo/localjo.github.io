@@ -458,20 +458,32 @@ const Terminal: FC<TerminalProps> = ({ children, title }) => {
     }
   }, [footerRef])
 
-  const menuLinks = data.allMarkdownRemark.edges
-    .map((edge: any) => {
-      return {
-        name: edge.node.frontmatter.title,
-        link: edge.node.fields.slug
-      }
-    })
-    .filter((item: MenuLink) => item.link !== location.pathname)
-  if (location.pathname !== '/') {
-    menuLinks.push({
-      name: 'Home',
-      link: '/'
-    })
-  }
+  let menuLinks = data.allMarkdownRemark.edges.map((edge: any) => {
+    return {
+      name: edge.node.frontmatter.title,
+      link: edge.node.fields.slug
+    }
+  })
+  menuLinks.push(
+    {
+      name: 'Travel Blog',
+      link: '/travel-blog'
+    },
+    {
+      name: 'Tech Blog',
+      link: '/tech-blog'
+    }
+  )
+  menuLinks.sort((linkA: MenuLink, linkB: MenuLink) => {
+    var a = linkA.name.toLowerCase()
+    var b = linkB.name.toLowerCase()
+    return a < b ? -1 : a > b ? 1 : 0
+  })
+
+  menuLinks.unshift({
+    name: 'Home',
+    link: '/'
+  })
   const commands = menuLinks.reduce((obj: { [key: string]: { aliases?: string[]; action?: Function } }, item: MenuLink) => {
     obj[item.name] = {
       action: () => {
@@ -540,7 +552,11 @@ const Terminal: FC<TerminalProps> = ({ children, title }) => {
               <ul className="ls">
                 {menuLinks.map((item: MenuLink) => (
                   <li key={item.link}>
-                    <Link to={item.link}>/{item.name}</Link>
+                    {item.link !== location.pathname ? (
+                      <Link to={item.link}>/{item.name}</Link>
+                    ) : (
+                      <span className="badge">/{item.name}</span>
+                    )}
                   </li>
                 ))}
               </ul>

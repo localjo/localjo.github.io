@@ -1,0 +1,70 @@
+import * as React from 'react'
+import { Link, graphql } from 'gatsby'
+
+import Page from '../components/Page'
+import Terminal from '../components/Terminal'
+import IndexLayout from '../layouts'
+import ASCII from '../components/ASCII'
+
+interface BlogIndexProps {
+  data: {
+    allMarkdownRemark: {
+      nodes: [
+        {
+          excerpt: string
+          fields: {
+            slug: string
+          }
+          frontmatter: {
+            title: string
+            date: string
+          }
+        }
+      ]
+    }
+  }
+}
+
+const TravelBlogIndex: React.FC<BlogIndexProps> = ({ data }) => {
+  return (
+    <IndexLayout>
+      <Page>
+        <Terminal title="/.welcome">
+          <ASCII text="Travel Blog" large={true} />
+          <br />
+          <p>Personal travel stories</p>
+          <ul>
+            {data.allMarkdownRemark.nodes.map(post => {
+              return (
+                <li key={post.fields.slug}>
+                  <Link to={post.fields.slug}>{post.frontmatter.title}</Link> - posted on {post.frontmatter.date}
+                  <br />
+                  <small style={{ paddingLeft: '1em', display: 'block' }}>{post.excerpt}</small>
+                </li>
+              )
+            })}
+          </ul>
+        </Terminal>
+      </Page>
+    </IndexLayout>
+  )
+}
+
+export default TravelBlogIndex
+
+export const query = graphql`
+  query TravelBlogQuery {
+    allMarkdownRemark(sort: { fields: frontmatter___date, order: DESC }, filter: { frontmatter: { category: { eq: "Travel" } } }) {
+      nodes {
+        excerpt(format: PLAIN)
+        fields {
+          slug
+        }
+        frontmatter {
+          title
+          date(formatString: "MMMM Do, YYYY")
+        }
+      }
+    }
+  }
+`

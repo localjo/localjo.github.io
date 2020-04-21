@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import moment from 'moment'
 import { globalHistory as history } from '@reach/router'
 
@@ -49,6 +49,9 @@ const BlogTemplate: React.FC<BlogTemplateProps> = ({ data }) => {
       <Page>
         <Terminal>
           <ASCII text={`${category} Blog`} />
+          <p>
+            <Link to={`${category.toLowerCase()}-blog`}>« go back to {category} Blog index</Link>
+          </p>
           <br />
           <h1>{title}</h1>
           <small>
@@ -70,6 +73,9 @@ const BlogTemplate: React.FC<BlogTemplateProps> = ({ data }) => {
               send an email with your comments to {author.email}
             </a>
             .
+          </p>
+          <p>
+            <Link to={`${category.toLowerCase()}-blog`}>« go back to {category} Blog index</Link>
           </p>
         </Terminal>
       </Page>
