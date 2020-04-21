@@ -2,7 +2,6 @@ import * as React from 'react'
 import { graphql } from 'gatsby'
 
 import Page from '../components/Page'
-import Container from '../components/Container'
 import Terminal from '../components/Terminal'
 import IndexLayout from '../layouts'
 import ASCII from '../components/ASCII'
@@ -36,15 +35,13 @@ const PageTemplate: React.FC<PageTemplateProps> = ({ data }) => {
   return (
     <IndexLayout>
       <Page>
-        <Container>
-          <Terminal>
-            <p>Parsing {data.markdownRemark.fields.slug.replace(/\//g, '')}.md...</p>
-            <ASCII text={data.markdownRemark.frontmatter.title} />
-            <br />
-            {/* eslint-disable-next-line react/no-danger */}
-            <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
-          </Terminal>
-        </Container>
+        <Terminal>
+          <p>Parsing {data.markdownRemark.fields.slug.replace(/\//g, '')}.md...</p>
+          <ASCII text={data.markdownRemark.frontmatter.title} />
+          <br />
+          {/* eslint-disable-next-line react/no-danger */}
+          <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
+        </Terminal>
       </Page>
     </IndexLayout>
   )

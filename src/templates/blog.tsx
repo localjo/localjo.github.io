@@ -2,7 +2,6 @@ import * as React from 'react'
 import { graphql } from 'gatsby'
 
 import Page from '../components/Page'
-import Container from '../components/Container'
 import Terminal from '../components/Terminal'
 import IndexLayout from '../layouts'
 
@@ -32,13 +31,11 @@ const BlogTemplate: React.FC<BlogTemplateProps> = ({ data }) => {
   return (
     <IndexLayout>
       <Page>
-        <Container>
-          <Terminal>
-            <h1>Blog: {data.markdownRemark.frontmatter.title}</h1>
-            {/* eslint-disable-next-line react/no-danger */}
-            <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
-          </Terminal>
-        </Container>
+        <Terminal>
+          <h1>Blog: {data.markdownRemark.frontmatter.title}</h1>
+          {/* eslint-disable-next-line react/no-danger */}
+          <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
+        </Terminal>
       </Page>
     </IndexLayout>
   )

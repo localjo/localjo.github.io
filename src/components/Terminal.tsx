@@ -3,7 +3,7 @@ import { Link, navigate, graphql, useStaticQuery } from 'gatsby'
 import styled from '@emotion/styled'
 import { globalHistory as history } from '@reach/router'
 import AutosizeInput from 'react-input-autosize'
-import { colors, breakpoints } from '../styles/variables'
+import { colors, breakpoints, widths } from '../styles/variables'
 import { lighten, transparentize, darken } from 'polished'
 import { getEmSize } from '../styles/mixins'
 
@@ -53,7 +53,7 @@ const TrafficLight = styled.div`
     margin: 10px 0 0 10px;
     border-radius: 6px;
     appearance: none;
-    background: ${darken(0.2, colors.white)};
+    background-color: ${darken(0.2, colors.white)};
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 8px;
@@ -72,13 +72,13 @@ const TrafficLight = styled.div`
   &:hover {
     button {
       &.green {
-        background-image: url(./fullscreen-button.svg);
+        background-image: url(/fullscreen-button.svg);
       }
       &.yellow {
-        background-image: url(./minimize-button.svg);
+        background-image: url(/minimize-button.svg);
       }
       &.red {
-        background-image: url(./close-button.svg);
+        background-image: url(/close-button.svg);
       }
     }
   }
@@ -414,6 +414,7 @@ const Terminal: FC<TerminalProps> = ({ children, title }) => {
   const { location } = history
   const [value, setValue] = useState<string>()
   const [navOpen, setNavOpen] = useState<boolean>(false)
+  const [maxWidth, setMaxWidth] = useState<number | string>(widths.lg)
   const promptRef = useRef<HTMLInputElement>(null)
   const footerRef = useRef<HTMLInputElement>(null)
   const data = useStaticQuery(graphql`
@@ -519,12 +520,12 @@ const Terminal: FC<TerminalProps> = ({ children, title }) => {
     }
   }
   return (
-    <Window onClick={handleWindowClick}>
+    <Window onClick={handleWindowClick} style={{ maxWidth }}>
       <TitleBar aria-hidden="true">
         <TrafficLight>
           <button className="red" onClick={() => navigate('/')}></button>
-          <button className="yellow"></button>
-          <button className="green"></button>
+          <button className="yellow" onClick={() => setNavOpen(!navOpen)}></button>
+          <button className="green" onClick={() => (maxWidth === 'none' ? setMaxWidth(widths.lg) : setMaxWidth('none'))}></button>
         </TrafficLight>
         <p title={`you@localjo-portfolio: ~${title || location.pathname}`}>you@localjo-portfolio: ~{title || location.pathname}</p>
       </TitleBar>
