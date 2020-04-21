@@ -288,22 +288,23 @@ const Footer = styled.div`
   bottom: -1px; // Footer must overlap container by 1px to trigger stuck attribute used below
   &[stuck] {
     padding: 10px 0 9px 0;
+    &:before {
+      position: absolute;
+      bottom: 100%;
+      height: 60px;
+      width: 100%;
+      content: '';
+      background: linear-gradient(to top, ${colors.ui.terminal} 50%, ${transparentize(1, colors.ui.terminal)} 100%);
+      pointer-events: none;
+    }
     &:after {
       position: absolute;
       bottom: 100%;
-      height: 50px;
       width: 100%;
-      content: '';
-      background: linear-gradient(to top, ${colors.ui.terminal} 0%, ${transparentize(1, colors.ui.terminal)} 90%);
-      pointer-events: none;
-    }
-    &:before {
-      position: absolute;
-      top: -5px;
-      width: 100%;
-      content: '˅˅ scroll for more ˅˅';
-      text-align: center;
-      color: ${transparentize(0.8, colors.white)};
+      content: '-- scroll down --';
+      text-align: left;
+      color: ${colors.ui.terminal};
+      background: ${darken(0.5, colors.white)};
       pointer-events: none;
     }
   }
