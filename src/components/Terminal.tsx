@@ -27,12 +27,16 @@ const TitleBar = styled.div`
   top: 0;
   z-index: 100;
   text-align: center;
-  span {
+  padding: 0 10px 0 76px;
+  p {
     font-size: 12px;
     font-weight: 500;
     color: ${darken(0.2, colors.white)};
     padding: 8px 0 8px 0;
     margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 `
 
@@ -487,7 +491,7 @@ const Terminal: FC<TerminalProps> = ({ children, title }) => {
           <button className="yellow"></button>
           <button className="green"></button>
         </TrafficLight>
-        <span>you@localjo-portfolio: ~{title || location.pathname}</span>
+        <p>you@localjo-portfolio: ~{title || location.pathname}</p>
       </TitleBar>
       <Main className="terminal-main">
         <Content>{children}</Content>
