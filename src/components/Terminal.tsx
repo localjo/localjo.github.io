@@ -492,7 +492,7 @@ const Terminal: FC<TerminalProps> = ({ children, title }) => {
           <button className="yellow"></button>
           <button className="green"></button>
         </TrafficLight>
-        <p>you@localjo-portfolio: ~{title || location.pathname}</p>
+        <p title={`you@localjo-portfolio: ~${title || location.pathname}`}>you@localjo-portfolio: ~{title || location.pathname}</p>
       </TitleBar>
       <Main className="terminal-main">
         <Content>{children}</Content>
