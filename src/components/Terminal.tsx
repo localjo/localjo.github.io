@@ -84,6 +84,7 @@ const Main = styled.div`
   p {
     font-size: inherit;
     color: inherit;
+    margin-bottom: 16px;
   }
   hr {
     border-style: dashed;
@@ -99,7 +100,7 @@ const Main = styled.div`
     text-decoration: none;
     display: inline-block;
     padding: 0 0.4em;
-    margin: 0 0 0.6em 0;
+    margin: 0 0.1em 0.6em 0;
     &.yellow {
       background: ${transparentize(0.2, colors.yellow)};
     }

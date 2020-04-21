@@ -12,10 +12,9 @@ const IndexPage = () => {
       <Page>
         <Container>
           <Terminal title="/.welcome">
-            <h1>Hello, I'm Jo Sprague</h1>
-            <p>I'm a Software Engineer and traveler and people call me</p>
             <ASCII text="Local Jo" large={true} />
             <br />
+            <h1>Jo Sprague - Senior Software Engineer</h1>
             <p className="emoji">
               ✨ I like to work with JavaScript/TypeScript, React,
               <br />

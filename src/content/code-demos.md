@@ -21,14 +21,14 @@ A trivia app demo I built that gets a list of true/false trivia questions from a
 
 ### Technology
 
-- [TypeScript](#){class="blue badge"}
-- [React](#){class="teal badge"}
-- [Redux](#){class="purple badge"}
-- [React Router](#){class="red badge"}
-- [Material UI](#){class="blue badge"}
-- [react-transition-group](#){class="badge"}
-- [Lodash](#){class="badge"}
-- [Jest](#){class="red badge"}
+[TypeScript](#){class="blue badge"}
+[React](#){class="teal badge"}
+[Redux](#){class="purple badge"}
+[React Router](#){class="red badge"}
+[Material UI](#){class="blue badge"}
+[react-transition-group](#){class="badge"}
+[Lodash](#){class="badge"}
+[Jest](#){class="red badge"}
 
 </div>
 
@@ -47,13 +47,13 @@ A lightweight GIF search engine that uses the Giphy API and allows users to quic
 
 ### Technology
 
-- [JavaScript](#){class="yellow badge"}
-- [React](#){class="teal badge"}
-- [Redux](#){class="purple badge"}
-- [Jest](#){class="red badge"}
-- [CSS](#){class="pink badge"}
-- [Lodash](#){class="badge"}
-- [Giphy API](#){class="badge"}
+[JavaScript](#){class="yellow badge"}
+[React](#){class="teal badge"}
+[Redux](#){class="purple badge"}
+[Jest](#){class="red badge"}
+[CSS](#){class="pink badge"}
+[Lodash](#){class="badge"}
+[Giphy API](#){class="badge"}
 
 </div>
 
@@ -71,10 +71,10 @@ I built this app to learn Solidity. It mimics a simple Twitter poll with the vot
 
 ### Technology
 
-- [Solidity](#){class="badge"}
-- [Ethereum](#){class="badge"}
-- [JavaScript](#){class="yellow badge"}
-- [React](#){class="teal badge"}
+[Solidity](#){class="badge"}
+[Ethereum](#){class="badge"}
+[JavaScript](#){class="yellow badge"}
+[React](#){class="teal badge"}
 
 </div>
 
@@ -92,12 +92,12 @@ A demo application that allows reading a Wikipedia from the command line. Suppor
 
 ### Technology
 
-- [JavaScript](#){class="yellow badge"}
-- [Bash](#){class="badge"}
-- [Cliffy](#){class="badge"}
-- [Lodash](#){class="badge"}
-- [Wikipedia API](#){class="badge"}
-- [Jest](#){class="red badge"}
+[JavaScript](#){class="yellow badge"}
+[Bash](#){class="badge"}
+[Cliffy](#){class="badge"}
+[Lodash](#){class="badge"}
+[Wikipedia API](#){class="badge"}
+[Jest](#){class="red badge"}
 
 </div>
 
@@ -116,9 +116,9 @@ A demo of a very fast search component I built while working on NASA Worldview t
 
 ### Technology
 
-- [JavaScript](#){class="yellow badge"}
-- [React](#){class="teal badge"}
-- [NASA GIBS API](#){class="blue badge"}
+[JavaScript](#){class="yellow badge"}
+[React](#){class="teal badge"}
+[NASA GIBS API](#){class="blue badge"}
 
 </div>
 
@@ -137,11 +137,11 @@ A basic Kanban board I built as a Trello clone to try out some new technologies.
 
 ### Technology
 
-- [JavaScript](#){class="yellow badge"}
-- [React](#){class="teal badge"}
-- [CSS](#){class="pink badge"}
-- [React Drag n Drop](#){class="badge"}
-- [Jest](#){class="red badge"}
+[JavaScript](#){class="yellow badge"}
+[React](#){class="teal badge"}
+[CSS](#){class="pink badge"}
+[React Drag n Drop](#){class="badge"}
+[Jest](#){class="red badge"}
 
 </div>
 
@@ -159,7 +159,7 @@ My solution to [this Coding Dojo challenge](http://codingdojo.org/kata/BankOCR/)
 
 ### Technology
 
-- [JavaScript](#){class="yellow badge"}
+[JavaScript](#){class="yellow badge"}
 
 </div>
 
@@ -178,10 +178,10 @@ A very old code sample, a pure JS table sorter using QUnit for tests and Bootstr
 
 ### Technology
 
-- [JavaScript](#){class="yellow badge"}
-- [HTML](#){class="orange badge"}
-- [QUnit](#){class="badge"}
-- [Bootstrap](#){class="purple badge"}
+[JavaScript](#){class="yellow badge"}
+[HTML](#){class="orange badge"}
+[QUnit](#){class="badge"}
+[Bootstrap](#){class="purple badge"}
 
 </div>
 

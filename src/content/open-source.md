@@ -102,14 +102,14 @@ A React plugin to add emoji markers and annotations to any element on a page. Wi
 
 ### Technology
 
-- [JavaScript](#){class="yellow badge"}
-- [React](#){class="teal badge"}
-- [React Hooks](#){class="teal badge"}
-- [Jest](#){class="red badge"}
-- [create-react-library](#){class="badge"}
-- [styled-components](#){class="badge"}
-- [Unicode Emoji](#){class="badge"}
-- [Collision Detection](#){class="badge"}
+[JavaScript](#){class="yellow badge"}
+[React](#){class="teal badge"}
+[React Hooks](#){class="teal badge"}
+[Jest](#){class="red badge"}
+[create-react-library](#){class="badge"}
+[styled-components](#){class="badge"}
+[Unicode Emoji](#){class="badge"}
+[Collision Detection](#){class="badge"}
 
 </div>
 
