@@ -25,17 +25,15 @@ const ASCII: FC<ASCIIProps> = ({ text = 'Hello!', rainbow = true, large = false 
   const widthTest = useRef<HTMLPreElement>(null)
   const lines = ascii.split('\n').filter(line => {
     return line.trim().length > 0
-  })
+  }) || [' ']
   const measuredWidth = widthTest.current ? widthTest.current.offsetWidth : 100
-  const lineLength = lines[0].length
+  const lineLength = lines[0] ? lines[0].length : 1
   const measuredFontSize = 100
   const targetFontSize = (measuredFontSize * (width / lineLength)) / measuredWidth
   const fontSize = targetFontSize < baseFontSize ? targetFontSize : baseFontSize
 
   useLayoutEffect(() => {
-    if (text) {
-      figlet.text(text, { font: large ? 'Slant' : 'Small Slant' }, (_err, data) => setAscii(data as string))
-    }
+    figlet.text(text, { font: large ? 'Slant' : 'Small Slant' }, (_err, data) => setAscii(data as string))
     const getParentWidth = () => {
       if (preWrap.current) {
         setWidth(preWrap.current.offsetWidth)
@@ -45,7 +43,7 @@ const ASCII: FC<ASCIIProps> = ({ text = 'Hello!', rainbow = true, large = false 
     if (preWrap.current) getParentWidth()
     window.addEventListener('resize', getParentWidth)
     return () => window.removeEventListener('resize', getParentWidth)
-  }, [preWrap.current])
+  }, [preWrap.current, text])
 
   if (rainbow) {
     const lineColors = lines.map((_line, line) => {

@@ -403,6 +403,7 @@ interface TerminalProps {
       action: Function
     }
   }
+  closedNav?: boolean
 }
 
 interface MenuLink {
@@ -410,7 +411,7 @@ interface MenuLink {
   link: string
 }
 
-const Terminal: FC<TerminalProps> = ({ children, title }) => {
+const Terminal: FC<TerminalProps> = ({ children, title, closedNav = false }) => {
   const { location } = history
   const [value, setValue] = useState<string>()
   const [navOpen, setNavOpen] = useState<boolean>(false)
@@ -451,7 +452,7 @@ const Terminal: FC<TerminalProps> = ({ children, title }) => {
         { threshold: [1] }
       )
       observer.observe(footerRef.current)
-      handleSetNavState()
+      if (!closedNav) handleSetNavState()
     }
     return () => {
       observer.disconnect()
@@ -536,7 +537,7 @@ const Terminal: FC<TerminalProps> = ({ children, title }) => {
       <TitleBar aria-hidden="true">
         <TrafficLight>
           <button className="red" onClick={() => navigate('/')}></button>
-          <button className="yellow" onClick={() => setNavOpen(!navOpen)}></button>
+          <button className="yellow" onClick={() => navigate('/ascii')}></button>
           <button className="green" onClick={() => (maxWidth === 'none' ? setMaxWidth(widths.lg) : setMaxWidth('none'))}></button>
         </TrafficLight>
         <p title={`you@localjo-portfolio: ~${title || location.pathname}`}>you@localjo-portfolio: ~{title || location.pathname}</p>
