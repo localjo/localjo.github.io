@@ -195,6 +195,9 @@ const Main = styled.div`
     padding: 15px;
     margin-bottom: 15px;
     width: 100%;
+    p {
+      max-width: 100%;
+    }
     @media (min-width: ${getEmSize(breakpoints.lg)}em) {
       width: 49%;
     }
@@ -253,13 +256,15 @@ const Main = styled.div`
     p > em,
     p > i {
       color: ${transparentize(0.5, colors.white)};
-      padding: 10px;
       a {
         color: ${colors.ui.terminal};
         background: ${colors.blue};
         font-style: normal;
         padding: 0 0.3em;
       }
+    }
+    p {
+      padding: 0 0 0 10px;
     }
     ul {
       li {
@@ -320,6 +325,9 @@ const Footer = styled.div`
       padding-left: 0;
       &:before {
         content: '';
+      }
+      @media (max-width: ${getEmSize(breakpoints.sm)}em) {
+        display: block;
       }
     }
   }
