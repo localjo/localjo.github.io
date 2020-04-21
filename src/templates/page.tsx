@@ -33,7 +33,6 @@ interface PageTemplateProps {
 }
 
 const PageTemplate: React.FC<PageTemplateProps> = ({ data }) => {
-  console.log(data)
   return (
     <IndexLayout>
       <Page>
