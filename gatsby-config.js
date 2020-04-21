@@ -6,7 +6,7 @@ module.exports = {
     description: `I work with JavaScript/TypeScript, React, Python and related tools and frameworks. I'm interested in working with teams that have a mission or product I'm passionate about.`,
     keywords: 'javascript, typescript, react, python, humanitarian',
     siteUrl: 'https://iamlocaljo.com',
-    siteImage: 'https://iamlocaljo.com/screenshot.png',
+    siteImage: 'https://iamlocaljo.com/social.png',
     author: {
       name: 'Jo Sprague',
       url: 'https://iamlocaljo.com',
