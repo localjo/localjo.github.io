@@ -5,8 +5,8 @@ title: 'Code Demos'
 
 The projects on this page show a sample of my coding abilities with different technologies. I often build these to learn about a new technology, or as examples to use to mentor other developers. Some of these are quite old, dating back all the way to the beginning of my career. I'm happy to discuss these demos more in depth.
 
-<div class="project-list">
-<div class="project">
+<div class="tile-list">
+<div class="project tile">
 
 ## Trivia Demo
 
@@ -32,7 +32,7 @@ A trivia app demo I built that gets a list of true/false trivia questions from a
 
 </div>
 
-<div class="project">
+<div class="project tile">
 
 ## Giphy Signal
 
@@ -57,7 +57,7 @@ A lightweight GIF search engine that uses the Giphy API and allows users to quic
 
 </div>
 
-<div class="project">
+<div class="project tile">
 
 ## Ethereum Poll App
 
@@ -78,7 +78,7 @@ I built this app to learn Solidity. It mimics a simple Twitter poll with the vot
 
 </div>
 
-<div class="project">
+<div class="project tile">
 
 ## Encyclopedia CLI
 
@@ -101,7 +101,7 @@ A demo application that allows reading a Wikipedia from the command line. Suppor
 
 </div>
 
-<div class="project">
+<div class="project tile">
 
 ## NASA Worldview Layers Search Component
 
@@ -122,7 +122,7 @@ A demo of a very fast search component I built while working on NASA Worldview t
 
 </div>
 
-<div class="project">
+<div class="project tile">
 
 ## Kanban Board
 
@@ -145,7 +145,7 @@ A basic Kanban board I built as a Trello clone to try out some new technologies.
 
 </div>
 
-<div class="project">
+<div class="project tile">
 
 ## OCR Bank Kata
 
@@ -163,7 +163,7 @@ My solution to [this Coding Dojo challenge](http://codingdojo.org/kata/BankOCR/)
 
 </div>
 
-<div class="project">
+<div class="project tile">
 
 ## Table Sorter
 

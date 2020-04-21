@@ -5,8 +5,8 @@ title: 'Open Source'
 
 I'm passionate about contributing to the Open Source community and I'm proud to have contributed to some really cool projects, as well as maintaining some projects of my own.
 
-<div class="project-list">
-<div class="project">
+<div class="tile-list">
+<div class="project tile">
 
 ## NASA Worldview
 
@@ -40,7 +40,7 @@ An app for browsing full-resolution, global, daily satellite images. Supports en
 [NASA GIBS API](#){class="blue badge"}
 
 </div>
-<div class="project">
+<div class="project tile">
 
 ## Humanitarian OpenStreetMap Team
 
@@ -65,7 +65,7 @@ MapCampaigner: An app for managing and monitoring field data collection campaign
 [OpenStreetMap API](#){class="green badge"}
 
 </div>
-<div class="project">
+<div class="project tile">
 
 ## Webpack Shell Loader
 
@@ -86,7 +86,7 @@ A Webpack loader that I built and maintain for running arbitrary shell scripts w
 
 </div>
 
-<div class="project">
+<div class="project tile">
 
 ## Tater 🥔
 
@@ -113,7 +113,7 @@ A React plugin to add emoji markers and annotations to any element on a page. Wi
 
 </div>
 
-<div class="project">
+<div class="project tile">
 
 ## Quotable WordPress Plugin
 

@@ -70,7 +70,7 @@ const TrafficLight = styled.div`
 
 const Main = styled.div`
   padding: 15px 15px 5px 15px;
-  font-family: monospace;
+  font-family: 'Fira Code', Menlo, Monaco, 'Courier New', monospace;
   font-size: 16px;
   line-height: 1.5em;
   min-height: 600px;
@@ -195,12 +195,12 @@ const Main = styled.div`
       border: none;
     }
   }
-  .project-list {
+  .tile-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
   }
-  .project {
+  .tile {
     background: ${transparentize(0.9, colors.white)};
     padding: 15px;
     margin-bottom: 15px;
@@ -211,6 +211,8 @@ const Main = styled.div`
     @media (min-width: ${getEmSize(breakpoints.lg)}em) {
       width: 49%;
     }
+  }
+  .project {
     h2 {
       /* Title */
       margin: 0 0 1em 0;

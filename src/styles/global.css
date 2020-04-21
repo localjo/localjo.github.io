@@ -6,4 +6,5 @@ html {
   -o-background-size: cover;
   background-size: cover;
   background-color: rgb(157, 166, 173);
+  height: 100%
 }
