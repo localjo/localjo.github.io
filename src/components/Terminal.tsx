@@ -61,19 +61,23 @@ const TrafficLight = styled.div`
     padding: 0;
     &.green {
       background-color: ${colors.ui.traffic.green};
-      &:hover {
-        background-image: url(./fullscreen-button.svg);
-      }
     }
     &.yellow {
       background-color: ${colors.ui.traffic.yellow};
-      &:hover {
-        background-image: url(./minimize-button.svg);
-      }
     }
     &.red {
       background-color: ${colors.ui.traffic.red};
-      &:hover {
+    }
+  }
+  &:hover {
+    button {
+      &.green {
+        background-image: url(./fullscreen-button.svg);
+      }
+      &.yellow {
+        background-image: url(./minimize-button.svg);
+      }
+      &.red {
         background-image: url(./close-button.svg);
       }
     }
