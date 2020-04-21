@@ -30,7 +30,7 @@ const IndexPage = () => {
               .
             </p>
             <p className="emoji">
-              ❤️ I'm interested in working with teams that have a<br />
+              💚 I'm interested in working with teams that have a<br />
               mission or product I'm passionate about.
             </p>
           </Terminal>
