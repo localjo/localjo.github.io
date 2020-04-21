@@ -44,7 +44,7 @@ An app for browsing full-resolution, global, daily satellite images. Supports en
 
 ## Humanitarian OpenStreetMap Team
 
-[![Screenshot](/screenshots/humanitarian-osm-mapcampaigner.png)](https://campaigns.hotosm.org/)
+[![](/screenshots/humanitarian-osm-mapcampaigner.png)](https://campaigns.hotosm.org/)
 
 ### Links
 
@@ -69,7 +69,7 @@ MapCampaigner: An app for managing and monitoring field data collection campaign
 
 ## Webpack Shell Loader
 
-[![Screenshot](/screenshots/webpack-shell-loader.png)](https://www.npmjs.com/package/shell-loader)
+[![](/screenshots/webpack-shell-loader.png)](https://www.npmjs.com/package/shell-loader)
 
 ### Links
 
@@ -90,7 +90,7 @@ A Webpack loader that I built and maintain for running arbitrary shell scripts w
 
 ## Tater 🥔
 
-[![Screenshot](/screenshots/react-tater.png)](https://www.npmjs.com/package/react-tater)
+[![](/screenshots/react-tater.png)](https://www.npmjs.com/package/react-tater)
 
 ### Links
 
@@ -117,7 +117,7 @@ A React plugin to add emoji markers and annotations to any element on a page. Wi
 
 ## Quotable WordPress Plugin
 
-[![Screenshot](/screenshots/wordpress-quotable.png)](https://wordpress.org/plugins/quotable/)
+[![](/screenshots/wordpress-quotable.png)](https://wordpress.org/plugins/quotable/)
 
 ### Links
 

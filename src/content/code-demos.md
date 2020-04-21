@@ -10,7 +10,7 @@ The projects on this page show a sample of my coding abilities with different te
 
 ## Trivia Demo
 
-[![Screenshot](/screenshots/trivia-demo.png)](https://iamlocaljo.com/trivia-demo/)
+[![](/screenshots/trivia-demo.png)](https://iamlocaljo.com/trivia-demo/)
 
 ### Links
 
@@ -36,7 +36,7 @@ A trivia app demo I built that gets a list of true/false trivia questions from a
 
 ## Giphy Signal
 
-[![Screenshot](/screenshots/giphy-signal.png)](https://giphy-signal.herokuapp.com/)
+[![](/screenshots/giphy-signal.png)](https://giphy-signal.herokuapp.com/)
 
 ### Links
 
@@ -61,7 +61,7 @@ A lightweight GIF search engine that uses the Giphy API and allows users to quic
 
 ## Ethereum Poll App
 
-[![Screenshot](/screenshots/ethereum-dapp.png)](ttps://github.com/localjo/ethereum-app-demo)
+[![](/screenshots/ethereum-dapp.png)](ttps://github.com/localjo/ethereum-app-demo)
 
 ### Links
 
@@ -82,7 +82,7 @@ I built this app to learn Solidity. It mimics a simple Twitter poll with the vot
 
 ## Encyclopedia CLI
 
-[![Screenshot](/screenshots/wikipedia-cli.png)](https://github.com/localjo/encyclopedia-cli)
+[![](/screenshots/wikipedia-cli.png)](https://github.com/localjo/encyclopedia-cli)
 
 ### Links
 
@@ -105,7 +105,7 @@ A demo application that allows reading a Wikipedia from the command line. Suppor
 
 ## NASA Worldview Layers Search Component
 
-[![Screenshot](/screenshots/nasa-worldview.png)](https://worldview.earthdata.nasa.gov/)
+[![](/screenshots/nasa-worldview.png)](https://worldview.earthdata.nasa.gov/)
 
 ### Links
 
@@ -126,7 +126,7 @@ A demo of a very fast search component I built while working on NASA Worldview t
 
 ## Kanban Board
 
-[![Screenshot](/screenshots/kanban-demo.png)](http://iamlocaljo.com/kanban-takehome/)
+[![](/screenshots/kanban-demo.png)](http://iamlocaljo.com/kanban-takehome/)
 
 ### Links
 
@@ -149,7 +149,7 @@ A basic Kanban board I built as a Trello clone to try out some new technologies.
 
 ## OCR Bank Kata
 
-[![Screenshot](/screenshots/ocr-bank-kata.png)](https://github.com/localjo/ocr-bank)
+[![](/screenshots/ocr-bank-kata.png)](https://github.com/localjo/ocr-bank)
 
 ### Links
 
@@ -167,7 +167,7 @@ My solution to [this Coding Dojo challenge](http://codingdojo.org/kata/BankOCR/)
 
 ## Table Sorter
 
-[![Screenshot](/screenshots/table-sorter.png)](http://iamlocaljo.com/table-sorter/)
+[![](/screenshots/table-sorter.png)](http://iamlocaljo.com/table-sorter/)
 
 ### Links
 
