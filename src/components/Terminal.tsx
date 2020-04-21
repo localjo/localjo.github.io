@@ -13,7 +13,7 @@ const Window = styled.div`
   margin-left: auto;
   margin-right: auto;
   width: auto;
-  max-height: 85vh;
+  max-height: 90vh;
   overflow: scroll;
   background: ${colors.ui.terminal};
   color: ${colors.white};
