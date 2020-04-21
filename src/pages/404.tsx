@@ -12,7 +12,9 @@ const NotFoundPage = () => (
       <Container>
         <Terminal title="/.welcome">
           <ASCII text="404" large={true} />
+          <br />
           <p>command not found</p>
+          <p>try one of these pages:</p>
         </Terminal>
       </Container>
     </Page>
