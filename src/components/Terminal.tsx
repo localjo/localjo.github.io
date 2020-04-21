@@ -13,7 +13,7 @@ const Window = styled.div`
   margin-left: auto;
   margin-right: auto;
   width: auto;
-  max-height: 95vh;
+  max-height: 85vh;
   overflow: scroll;
   background: ${colors.ui.terminal};
   color: ${colors.white};
@@ -89,6 +89,16 @@ const Main = styled.div`
     font-size: inherit;
     color: inherit;
     margin-bottom: 16px;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  strong,
+  b {
+    font-weight: bold;
   }
   hr {
     border-style: dashed;
@@ -424,10 +434,8 @@ const Terminal: FC<TerminalProps> = ({ children, title }) => {
       observer.observe(footerRef.current)
       handleSetNavState()
     }
-    window.addEventListener('resize', handleSetNavState)
     return () => {
       observer.disconnect()
-      window.removeEventListener('resize', handleSetNavState)
     }
   }, [footerRef])
 
