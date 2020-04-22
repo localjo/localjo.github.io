@@ -134,7 +134,6 @@ _[Doulos Discovery School](http://www.jarabacoard.com/es/servicios/item/doulos-d
   \_)\ ,' \.,'  (  / )/
       `  \._,'   `"
          \../
-         \../
           \../    ^~^  ,
           \../   ('Y') )
            \../  /   \/
