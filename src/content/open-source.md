@@ -3,6 +3,8 @@ layout: page
 title: 'Open Source'
 ---
 
+# My Open Source Projects
+
 I'm passionate about contributing to the Open Source community and I'm proud to have contributed to some really cool projects, as well as maintaining some projects of my own.
 
 <div class="tile-list">

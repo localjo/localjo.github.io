@@ -3,7 +3,9 @@ layout: page
 title: 'Technologies'
 ---
 
-# My Favorite Technologies
+# My Tech Stack
+
+These are my favorite technologies to work with.
 
 [TypeScript](https://www.typescriptlang.org/){class="blue badge"}
 [React](https://reactjs.org/){class="teal badge"}
@@ -13,7 +15,7 @@ title: 'Technologies'
 [~~bash~~ zsh](https://ohmyz.sh/){class="badge"}
 [Python](https://www.python.org/){class="blue badge"}
 
-# Other Technologies I Have Experience With
+## Technologies I Have Experience With
 
 [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript){class="yellow badge"}
 [Grunt](https://gruntjs.com/){class="orange badge"}
@@ -50,7 +52,7 @@ title: 'Technologies'
 [PHP](https://www.php.net/){class="purple badge"}
 [Ruby](https://www.ruby-lang.org/){class="red badge"}
 
-# Other Skills
+## Other Skills
 
 [UI/UX](#){class="badge"}
 [Graphic Design](#){class="badge"}

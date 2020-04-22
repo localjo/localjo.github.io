@@ -1,7 +1,9 @@
 ---
 layout: page
-title: 'Links'
+title: 'Other Profiles'
 ---
+
+# My Other Profiles
 
 <div class="tile-list">
 

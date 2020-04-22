@@ -32,7 +32,7 @@ const TravelBlogIndex: React.FC<BlogIndexProps> = ({ data }) => {
         <Terminal title="/.welcome">
           <ASCII text="Travel Blog" large={true} />
           <br />
-          <p>Personal travel stories</p>
+          <h1>My Personal Travel Stories</h1>
           <ul>
             {data.allMarkdownRemark.nodes.map(post => {
               return (

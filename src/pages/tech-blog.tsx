@@ -32,7 +32,7 @@ const TechBlogIndex: React.FC<BlogIndexProps> = ({ data }) => {
         <Terminal title="/.welcome">
           <ASCII text="Tech Blog" large={true} />
           <br />
-          <p>Posts about technical topics</p>
+          <h1>My Technical Blog Posts</h1>
           <ul>
             {data.allMarkdownRemark.nodes.map(post => {
               return (
