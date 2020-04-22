@@ -306,6 +306,15 @@ const Main = styled.div`
       margin: 0 auto;
       max-width: 80%;
     }
+    pre {
+      margin-bottom: 2em;
+    }
+    @media (min-width: ${getEmSize(breakpoints.sm)}em) {
+      pre {
+        float: left;
+        margin: 0 2em 2em 0;
+      }
+    }
   }
 `
 
