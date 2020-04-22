@@ -16,6 +16,9 @@ interface StaticQueryProps {
       keywords: string
       siteUrl: string
       siteImage: string
+      author: {
+        name: string
+      }
     }
   }
 }
@@ -31,6 +34,9 @@ const IndexLayout: React.FC = ({ children }) => (
             keywords
             siteUrl
             siteImage
+            author {
+              name
+            }
           }
         }
       }
@@ -42,6 +48,7 @@ const IndexLayout: React.FC = ({ children }) => (
           meta={[
             { name: 'description', content: data.site.siteMetadata.description },
             { name: 'keywords', content: data.site.siteMetadata.keywords },
+            { name: 'author', content: data.site.siteMetadata.author.name },
             { property: 'og:title', content: data.site.siteMetadata.title },
             { property: 'og:description', content: data.site.siteMetadata.description },
             { property: 'og:image', content: data.site.siteMetadata.siteImage },
