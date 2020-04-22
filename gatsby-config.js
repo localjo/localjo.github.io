@@ -41,6 +41,14 @@ module.exports = {
       }
     },
     {
+      resolve: 'gatsby-plugin-fathom',
+      options: {
+        trackingUrl: 'cdn.usefathom.com',
+        siteId: 'NACYXQJM',
+        whitelistHostnames: ['iamlocaljo.com']
+      }
+    },
+    {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
