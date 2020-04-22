@@ -46,7 +46,7 @@ const TrafficLight = styled.div`
   left: 0;
   line-height: 12px;
   padding: 0;
-  button {
+  span {
     display: inline-block;
     width: 12px;
     height: 12px;
@@ -70,7 +70,7 @@ const TrafficLight = styled.div`
     }
   }
   &:hover {
-    button {
+    span {
       &.green {
         background-image: url(/fullscreen-button.svg);
       }
@@ -423,7 +423,7 @@ interface MenuLink {
 const Terminal: FC<TerminalProps> = ({ children, title, closedNav = false }) => {
   const { location } = history
   const [value, setValue] = useState<string>()
-  const [navOpen, setNavOpen] = useState<boolean>(false)
+  const [navOpen, setNavOpen] = useState<boolean>(true)
   const [maxWidth, setMaxWidth] = useState<number | string>(widths.lg)
   const promptRef = useRef<HTMLInputElement>(null)
   const footerRef = useRef<HTMLInputElement>(null)
@@ -541,15 +541,17 @@ const Terminal: FC<TerminalProps> = ({ children, title, closedNav = false }) => 
       }
     }
   }
+  const titleBarLocation = title || location.pathname
+  const titleBarText = titleBarLocation.length > 0 ? `you@localjo-portfolio: ~${titleBarLocation}` : `you@localjo-portfolio:`
   return (
     <Window onClick={handleWindowClick} style={{ maxWidth }}>
       <TitleBar aria-hidden="true">
         <TrafficLight>
-          <button className="red" onClick={() => navigate('/')}></button>
-          <button className="yellow" onClick={() => navigate('/ascii')}></button>
-          <button className="green" onClick={() => (maxWidth === 'none' ? setMaxWidth(widths.lg) : setMaxWidth('none'))}></button>
+          <span className="red" onClick={() => navigate('/')}></span>
+          <span className="yellow" onClick={() => navigate('/ascii')}></span>
+          <span className="green" onClick={() => (maxWidth === 'none' ? setMaxWidth(widths.lg) : setMaxWidth('none'))}></span>
         </TrafficLight>
-        <p title={`you@localjo-portfolio: ~${title || location.pathname}`}>you@localjo-portfolio: ~{title || location.pathname}</p>
+        <p title={titleBarText}>{titleBarText}</p>
       </TitleBar>
       <Main className="terminal-main">
         <Content>{children}</Content>
@@ -562,11 +564,9 @@ const Terminal: FC<TerminalProps> = ({ children, title, closedNav = false }) => 
               <ul className="ls">
                 {menuLinks.map((item: MenuLink) => (
                   <li key={item.link}>
-                    {item.link !== location.pathname ? (
-                      <Link to={item.link}>/{item.name}</Link>
-                    ) : (
-                      <span className="badge">/{item.name}</span>
-                    )}
+                    <Link className={`${item.link === location.pathname ? 'badge' : ''}`} to={item.link}>
+                      /{item.name}
+                    </Link>
                   </li>
                 ))}
               </ul>

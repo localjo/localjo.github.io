@@ -29,7 +29,7 @@ const TravelBlogIndex: React.FC<BlogIndexProps> = ({ data }) => {
   return (
     <IndexLayout>
       <Page>
-        <Terminal title="/.welcome">
+        <Terminal title="/travel-blog">
           <ASCII text="Travel Blog" large={true} />
           <br />
           <h1>My Personal Travel Stories</h1>
