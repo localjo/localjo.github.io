@@ -1,0 +1,74 @@
+/* This isn't used yet, but is a good starter for printing experience page, along with switching dark and light colors */
+
+pre.rainbow {
+  color: rgb(0, 0, 0) !important;
+}
+
+.Main code, .Main pre {
+  color: rgb(159, 55, 142) !important;
+}
+
+.Window {
+  max-height: auto;
+  box-shadow: none;
+  border-radius: none;
+  background: white;
+  padding: 20px 50px;
+  max-width: auto;
+}
+
+body {
+  width: auto overflow: auto;
+}
+
+html {
+  height: auto;
+  background: white;
+}
+
+.StyledLayoutRoot {
+  height: auto;
+}
+
+h3 {
+  clear: both;
+}
+
+.experience pre {
+  font-size: 12px;
+  width: 17em;
+}
+
+.Main .experience p>em a, .Main .experience p>i a {
+  color: rgb(244, 244, 244);
+  background: rgb(9, 85, 138);
+}
+
+.Footer .prompt input:focus {
+  animation: none;
+}
+
+.Footer .prompt input {
+  border-right: 0.8em solid #000;
+}
+
+.Main .experience ul {
+  margin: 0;
+  max-width: 60%;
+}
+
+.TitleBar {
+  display: none;
+}
+
+.Footer {
+  background: none;
+}
+
+.StyledPage {
+  padding: 4.5rem;
+}
+
+.Main {
+  font-size: 20px;
+}
