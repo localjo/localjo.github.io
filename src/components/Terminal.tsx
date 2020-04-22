@@ -363,9 +363,17 @@ const Footer = styled.div`
       &:before {
         content: '';
       }
-      @media (max-width: ${getEmSize(breakpoints.sm)}em) {
-        display: block;
-      }
+    }
+  }
+  .tip {
+    display: none;
+  }
+  @media (max-width: ${getEmSize(breakpoints.sm)}em) {
+    ul.ls li {
+      display: block;
+    }
+    .tip {
+      display: inline;
     }
   }
   .prompt {
@@ -557,7 +565,7 @@ const Terminal: FC<TerminalProps> = ({ children, title, closedNav = false }) => 
         <Content>{children}</Content>
         <Footer ref={footerRef}>
           <p aria-label="Toggle navigation" onClick={() => setNavOpen(!navOpen)}>
-            > nav {!navOpen ? <small># tap for menu</small> : null}
+            > nav {!navOpen ? <small># tap to open menu</small> : <small className="tip"># tap to close menu</small>}
           </p>
           {navOpen ? (
             <>
