@@ -55,12 +55,6 @@ const ASCII: FC<ASCIIProps> = ({ text = 'Hello!', rainbow = true, large = false 
     return (
       <div ref={preWrap}>
         <style>{`pre.rainbow {margin: 0; padding: 0; font-size: ${fontSize}px;}`}</style>
-        <pre
-          ref={widthTest}
-          style={{ fontSize: `${measuredFontSize}px`, background: 'red', float: 'left', position: 'absolute', visibility: 'hidden' }}
-        >
-          X
-        </pre>
         {lines.map((line, i) => {
           const [red, blue, green] = lineColors[i]
           return (
@@ -69,6 +63,16 @@ const ASCII: FC<ASCIIProps> = ({ text = 'Hello!', rainbow = true, large = false 
             </pre>
           )
         })}
+        <pre
+          ref={widthTest}
+          style={{
+            fontSize: `${measuredFontSize}px`,
+            position: 'absolute',
+            visibility: 'hidden'
+          }}
+        >
+          &nbsp;
+        </pre>
       </div>
     )
   } else {
