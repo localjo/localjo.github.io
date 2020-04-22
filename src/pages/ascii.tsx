@@ -7,7 +7,6 @@ import ASCII from '../components/ASCII'
 import styled from '@emotion/styled'
 import { darken } from 'polished'
 import { colors } from '../styles/variables'
-import AutosizeInput from 'react-input-autosize'
 
 const Prompt = styled.div`
   .prompt {
@@ -19,29 +18,14 @@ const Prompt = styled.div`
       appearance: none;
       background: transparent;
       border: none;
-      border-right: 0.8em solid;
-      margin-right: 0.2em;
-      /* Text color with hidden caret */
-      text-shadow: 0 0 0 ${darken(0.2, colors.white)};
-      color: transparent;
+      color: ${darken(0.2, colors.white)};
       &:focus {
         overflow: hidden;
         white-space: nowrap;
-        padding-right: 0;
         display: inline-block;
         outline: none;
-        animation: blink-caret 1.2s step-end infinite;
+        border-bottom: 1px dotted ${darken(0.5, colors.white)};
       }
-    }
-  }
-
-  @keyframes blink-caret {
-    from,
-    to {
-      border-right-color: transparent;
-    }
-    50% {
-      border-right-color: ${darken(0.2, colors.white)};
     }
   }
 `
@@ -60,13 +44,12 @@ const IndexPage = () => {
           <Prompt>
           <div className="prompt">
             Type here:&nbsp;
-            <AutosizeInput
-              ref={inputRef as any}
+            <input
+              ref={inputRef}
               aria-label="Change ASCII text"
               autoFocus
               value={value}
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => setValue(e.target.value)}
-              onSelect={(e: React.ChangeEvent<HTMLInputElement>) => e.target.selectionStart = e.target.value.length}
             />
           </div>
           </Prompt>
