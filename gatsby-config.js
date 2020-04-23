@@ -44,7 +44,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-fathom',
       options: {
-        trackingUrl: 'elk.iamlocaljo.com',
+        trackingUrl: 'cdn.usefathom.com',
         siteId: 'NACYXQJM',
         whitelistHostnames: ['iamlocaljo.com']
       }
