@@ -1,6 +1,5 @@
 import * as React from 'react'
 import { graphql, Link } from 'gatsby'
-import moment from 'moment'
 import { globalHistory as history } from '@reach/router'
 
 import Page from '../components/Page'
@@ -55,7 +54,7 @@ const BlogTemplate: React.FC<BlogTemplateProps> = ({ data }) => {
           <br />
           <h1>{title}</h1>
           <small>
-            Published on {moment(date, 'YYYY-MM-DD').format('MMMM Do, YYYY')} by {author.name}
+            Published on {date} by {author.name}
           </small>
           <hr />
           {/* eslint-disable-next-line react/no-danger */}
@@ -101,7 +100,7 @@ export const query = graphql`
       excerpt
       frontmatter {
         title
-        date
+        date(formatString: "MMMM Do, YYYY")
         category
       }
     }
