@@ -48,7 +48,7 @@ const BlogTemplate: React.FC<BlogTemplateProps> = ({ data }) => {
     <IndexLayout>
       <Page>
         <Terminal>
-          <ASCII text={`${category} Blog`} large={true} fallback="h2" />
+          <ASCII text={`${category} Blog`} fallback="h2" />
           <p>
             <Link to={`${category.toLowerCase()}-blog`}>« go back to {category} Blog index</Link>
           </p>

@@ -30,7 +30,7 @@ const TechBlogIndex: React.FC<BlogIndexProps> = ({ data }) => {
     <IndexLayout>
       <Page>
         <Terminal title="/tech-blog">
-          <ASCII text="Tech Blog" large={true} fallback="h1" />
+          <ASCII text="Tech Blog" fallback="h1" />
           <br />
           <h1>My Technical Blog Posts</h1>
           <ul>

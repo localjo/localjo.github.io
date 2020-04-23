@@ -38,7 +38,7 @@ const IndexPage = () => {
       <Page>
         <Terminal title="/.ascii-demo" closedNav={true}>
           <div onClick={() => inputRef.current?.focus()}>
-            <ASCII text={value} large={true} />
+            <ASCII text={value} />
           </div>
           <br />
           <Prompt>
