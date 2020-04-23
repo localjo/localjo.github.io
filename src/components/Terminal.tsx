@@ -431,6 +431,7 @@ interface MenuLink {
 const Terminal: FC<TerminalProps> = ({ children, title, closedNav = false }) => {
   const { location } = history
   const [value, setValue] = useState<string>()
+  const [isMounted, setIsMounted] = useState<boolean>(false)
   const [navOpen, setNavOpen] = useState<boolean>(true)
   const [maxWidth, setMaxWidth] = useState<number | string>(widths.lg)
   const promptRef = useRef<HTMLInputElement>(null)
@@ -471,6 +472,7 @@ const Terminal: FC<TerminalProps> = ({ children, title, closedNav = false }) => 
       observer.observe(footerRef.current)
       if (!closedNav) handleSetNavState()
     }
+    setIsMounted(true)
     return () => {
       observer.disconnect()
     }
@@ -550,7 +552,7 @@ const Terminal: FC<TerminalProps> = ({ children, title, closedNav = false }) => 
     }
   }
   const titleBarLocation = title || location.pathname
-  const titleBarText = titleBarLocation.length > 0 ? `you@localjo-portfolio: ~${titleBarLocation}` : `you@localjo-portfolio:`
+  const titleBarText = isMounted ? `you@localjo-portfolio: ~${titleBarLocation}` : ''
   return (
     <Window onClick={handleWindowClick} style={{ maxWidth }}>
       <TitleBar aria-hidden="true">

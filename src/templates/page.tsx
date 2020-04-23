@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React from 'react'
 import { graphql } from 'gatsby'
 
 import Page from '../components/Page'
@@ -36,7 +36,6 @@ const PageTemplate: React.FC<PageTemplateProps> = ({ data }) => {
     <IndexLayout>
       <Page>
         <Terminal>
-          <p>Parsing {data.markdownRemark.fields.slug.replace(/\//g, '')}.md...</p>
           <ASCII text={data.markdownRemark.frontmatter.title} />
           <br />
           {/* eslint-disable-next-line react/no-danger */}
