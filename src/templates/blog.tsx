@@ -6,7 +6,7 @@ import { globalHistory as history } from '@reach/router'
 import Page from '../components/Page'
 import Terminal from '../components/Terminal'
 import IndexLayout from '../layouts'
-import ASCII from '../components/ASCII'
+import ASCII from 'react-rainbow-ascii'
 import styled from '@emotion/styled'
 
 interface BlogTemplateProps {

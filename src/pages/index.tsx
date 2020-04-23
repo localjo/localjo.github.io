@@ -3,14 +3,14 @@ import * as React from 'react'
 import Page from '../components/Page'
 import Terminal from '../components/Terminal'
 import IndexLayout from '../layouts'
-import ASCII from '../components/ASCII'
+import ASCII from 'react-rainbow-ascii'
 
 const IndexPage = () => {
   return (
     <IndexLayout>
       <Page>
         <Terminal title="/.welcome">
-          <ASCII text="Local Jo" large={true} fallback="p" />
+          <ASCII text="Local Jo" fallback="p" />
           <br />
           <h1>Jo Sprague - Senior Software Engineer</h1>
           <p className="emoji">

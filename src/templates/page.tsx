@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import Page from '../components/Page'
 import Terminal from '../components/Terminal'
 import IndexLayout from '../layouts'
-import ASCII from '../components/ASCII'
+import ASCII from 'react-rainbow-ascii'
 
 interface PageTemplateProps {
   data: {

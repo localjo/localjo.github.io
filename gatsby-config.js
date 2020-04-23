@@ -40,6 +40,7 @@ module.exports = {
         lang: 'en'
       }
     },
+    'gatsby-plugin-webpack-bundle-analyzer',
     {
       resolve: 'gatsby-plugin-fathom',
       options: {

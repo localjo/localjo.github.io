@@ -3,7 +3,7 @@ import * as React from 'react'
 import Page from '../components/Page'
 import IndexLayout from '../layouts'
 import Terminal from '../components/Terminal'
-import ASCII from '../components/ASCII'
+import ASCII from 'react-rainbow-ascii'
 
 const NotFoundPage = () => (
   <IndexLayout>

@@ -46,6 +46,7 @@
     "gatsby-plugin-sharp": "^2.2.1",
     "gatsby-plugin-typescript": "^2.1.0",
     "gatsby-plugin-web-font-loader": "^1.0.4",
+    "gatsby-plugin-webpack-bundle-analyzer": "^1.0.5",
     "gatsby-remark-attr": "^0.0.3",
     "gatsby-remark-copy-linked-files": "^2.1.0",
     "gatsby-remark-images": "^3.1.0",
@@ -66,6 +67,7 @@
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
     "react-input-autosize": "^2.2.2",
+    "react-rainbow-ascii": "^1.0.1",
     "typescript": "^3.5.2"
   },
   "devDependencies": {
