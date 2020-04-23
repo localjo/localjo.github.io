@@ -10,7 +10,7 @@ const IndexPage = () => {
     <IndexLayout>
       <Page>
         <Terminal title="/.welcome">
-          <ASCII text="Local Jo" large={true} />
+          <ASCII text="Local Jo" large={true} fallback="p" />
           <br />
           <h1>Jo Sprague - Senior Software Engineer</h1>
           <p className="emoji">

@@ -1,4 +1,4 @@
-import React, { FC, useState, useLayoutEffect, useRef } from 'react'
+import React, { FC, useState, useLayoutEffect, useRef, createElement } from 'react'
 import figlet from 'figlet'
 // @ts-ignore
 import slant from 'figlet/importable-fonts/Slant.js'
@@ -15,9 +15,10 @@ interface ASCIIProps {
   text?: string
   rainbow?: boolean
   large?: boolean
+  fallback?: string
 }
 
-const ASCII: FC<ASCIIProps> = ({ text = 'Hello!', rainbow = true, large = false }) => {
+const ASCII: FC<ASCIIProps> = ({ text = 'Hello!', rainbow = true, large = false, fallback = 'h1' }) => {
   const [ascii, setAscii] = useState<string>(text)
   const [width, setWidth] = useState<number>(0)
   const [baseFontSize, setBaseFontSize] = useState<number>(16)
@@ -45,7 +46,8 @@ const ASCII: FC<ASCIIProps> = ({ text = 'Hello!', rainbow = true, large = false 
     return () => window.removeEventListener('resize', getParentWidth)
   }, [preWrap.current, text])
 
-  if (rainbow) {
+  const hasMounted = ascii !== text // If they're equal, figlet hasn't been applied
+  const Rainbow: FC = () => {
     const lineColors = lines.map((_line, line) => {
       return Array.from('rbg').map((_c, rbgi) => getPhaseRBG(line, (rbgi * Math.PI * 2) / 3))
     })
@@ -53,31 +55,34 @@ const ASCII: FC<ASCIIProps> = ({ text = 'Hello!', rainbow = true, large = false 
       return Math.floor(Math.sin((Math.PI / lines.length) * 2 * rbgi + phase) * 127) + 128
     }
     return (
-      <div ref={preWrap}>
-        <style>{`pre.rainbow {margin: 0; padding: 0; font-size: ${fontSize}px;}`}</style>
+      <>
         {lines.map((line, i) => {
           const [red, blue, green] = lineColors[i]
           return (
-            <pre key={i} className="rainbow" style={{ color: desaturate(0.2, `rgb(${red},${green},${blue})`) }}>
+            <pre key={i} style={{ color: desaturate(0.2, `rgb(${red},${green},${blue})`) }}>
               {line}
             </pre>
           )
         })}
-        <pre
-          ref={widthTest}
-          style={{
-            fontSize: `${measuredFontSize}px`,
-            position: 'absolute',
-            visibility: 'hidden'
-          }}
-        >
-          &nbsp;
-        </pre>
-      </div>
+      </>
     )
-  } else {
-    return <pre>{ascii}</pre>
   }
+  const measureStyle: React.CSSProperties = { fontSize: `${measuredFontSize}px`, position: 'absolute', visibility: 'hidden' }
+  return (
+    <div ref={preWrap} className="responsive-ascii">
+      {hasMounted ? (
+        <>
+          <style>{`.responsive-ascii pre {margin: 0; padding: 0; font-size: ${fontSize}px;}`}</style>
+          {rainbow ? <Rainbow /> : <pre>{ascii}</pre>}
+        </>
+      ) : (
+        createElement(fallback, null, [ascii])
+      )}
+      <pre ref={widthTest} style={measureStyle}>
+        &nbsp;
+      </pre>
+    </div>
+  )
 }
 
 export default ASCII
