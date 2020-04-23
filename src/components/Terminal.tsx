@@ -580,36 +580,38 @@ const Terminal: FC<TerminalProps> = ({ children, title, closedNav = false }) => 
                   </li>
                 ))}
               </ul>
-              <div className="prompt">
-                <span aria-hidden="true">>&nbsp;</span>
-                <AutosizeInput
-                  ref={promptRef as any}
-                  aria-label="Navigate to page"
-                  autoFocus
-                  value={value}
-                  onChange={handleChange}
-                  onSelect={moveCursorToEnd}
-                  onKeyDown={handleKeyDown}
-                />
-                {commandNames
-                  .filter(command => {
-                    if (value && value.length > 0) {
-                      return command.toLowerCase().startsWith(value.toLowerCase())
-                    } else {
-                      return false
-                    }
-                  })
-                  .map((command, i, arr) => {
-                    const isLast = i === arr.length - 1
-                    const isFirst = i === 0
-                    return (
-                      <small key={command} style={isFirst ? { opacity: 0.7, position: 'relative', left: '-1em' } : {}}>
-                        {isFirst && value ? command.toLowerCase().replace(value, '') : command.toLowerCase()}
-                        {isLast ? '' : ', '}
-                      </small>
-                    )
-                  })}
-              </div>
+              {isMounted && (
+                <div className="prompt">
+                  <span aria-hidden="true">>&nbsp;</span>
+                  <AutosizeInput
+                    ref={promptRef as any}
+                    aria-label="Navigate to page"
+                    autoFocus
+                    value={value}
+                    onChange={handleChange}
+                    onSelect={moveCursorToEnd}
+                    onKeyDown={handleKeyDown}
+                  />
+                  {commandNames
+                    .filter(command => {
+                      if (value && value.length > 0) {
+                        return command.toLowerCase().startsWith(value.toLowerCase())
+                      } else {
+                        return false
+                      }
+                    })
+                    .map((command, i, arr) => {
+                      const isLast = i === arr.length - 1
+                      const isFirst = i === 0
+                      return (
+                        <small key={command} style={isFirst ? { opacity: 0.7, position: 'relative', left: '-1em' } : {}}>
+                          {isFirst && value ? command.toLowerCase().replace(value, '') : command.toLowerCase()}
+                          {isLast ? '' : ', '}
+                        </small>
+                      )
+                    })}
+                </div>
+              )}
             </>
           ) : null}
         </Footer>
