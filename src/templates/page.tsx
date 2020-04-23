@@ -36,7 +36,7 @@ const PageTemplate: React.FC<PageTemplateProps> = ({ data }) => {
     <IndexLayout>
       <Page>
         <Terminal>
-          <ASCII text={data.markdownRemark.frontmatter.title} />
+          <ASCII text={data.markdownRemark.frontmatter.title} large={true} />
           <br />
           {/* eslint-disable-next-line react/no-danger */}
           <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
