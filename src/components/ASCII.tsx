@@ -18,7 +18,7 @@ interface ASCIIProps {
   fallback?: string
 }
 
-const ASCII: FC<ASCIIProps> = ({ text = 'Hello!', rainbow = true, large = false, fallback = 'h1' }) => {
+const ASCII: FC<ASCIIProps> = ({ text = 'Hello!', rainbow = true, large = false, fallback = 'pre' }) => {
   const [ascii, setAscii] = useState<string>(text)
   const [width, setWidth] = useState<number>(0)
   const [baseFontSize, setBaseFontSize] = useState<number>(16)

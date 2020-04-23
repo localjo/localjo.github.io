@@ -9,7 +9,7 @@ const NotFoundPage = () => (
   <IndexLayout>
     <Page>
       <Terminal title="/.welcome">
-        <ASCII text="404" large={true} />
+        <ASCII text="404" large={true} fallback="h1" />
         <br />
         <p>command not found</p>
         <p>try one of these pages:</p>
