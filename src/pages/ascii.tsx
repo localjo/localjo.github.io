@@ -9,7 +9,7 @@ import { darken } from 'polished'
 import { colors } from '../styles/variables'
 
 const Prompt = styled.div`
-  .prompt {
+  .terminal-input {
     min-height: 2em;
     input {
       font-size: 16px;
@@ -37,21 +37,21 @@ const IndexPage = () => {
     <IndexLayout>
       <Page>
         <Terminal title="/.ascii-demo" closedNav={true}>
-          <div onClick={()=> inputRef.current?.focus()}>
-          <ASCII text={value} large={true} />
+          <div onClick={() => inputRef.current?.focus()}>
+            <ASCII text={value} large={true} />
           </div>
           <br />
           <Prompt>
-          <div className="prompt">
-            Type here:&nbsp;
-            <input
-              ref={inputRef}
-              aria-label="Change ASCII text"
-              autoFocus
-              value={value}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => setValue(e.target.value)}
-            />
-          </div>
+            <div className="terminal-input">
+              Type here:&nbsp;
+              <input
+                ref={inputRef}
+                aria-label="Change ASCII text"
+                autoFocus
+                value={value}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => setValue(e.target.value)}
+              />
+            </div>
           </Prompt>
         </Terminal>
       </Page>
