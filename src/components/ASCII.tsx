@@ -69,7 +69,7 @@ const ASCII: FC<ASCIIProps> = ({ text = 'Hello!', rainbow = true, large = false,
   }
   const measureStyle: React.CSSProperties = { fontSize: `${measuredFontSize}px`, position: 'absolute', visibility: 'hidden' }
   return (
-    <div ref={preWrap} className="responsive-ascii">
+    <div ref={preWrap} className="responsive-ascii" title={text} aria-label={text}>
       {hasMounted ? (
         <>
           <style>{`.responsive-ascii pre {margin: 0; padding: 0; font-size: ${fontSize}px;}`}</style>
