@@ -567,7 +567,7 @@ const Terminal: FC<TerminalProps> = ({ children, title, closedNav = false }) => 
         <Content>{children}</Content>
         <Footer ref={footerRef}>
           <p aria-label="Toggle navigation" onClick={() => setNavOpen(!navOpen)}>
-            > nav {!navOpen ? <small># tap to open menu</small> : <small className="tip"># tap to close menu</small>}
+            > nav {!navOpen ? <small># tap to open menu</small> : isMounted && <small className="tip"># tap to close menu</small>}
           </p>
           {navOpen ? (
             <>
