@@ -8,6 +8,7 @@ import Terminal from '../components/Terminal'
 import IndexLayout from '../layouts'
 import ASCII from 'react-rainbow-ascii'
 import styled from '@emotion/styled'
+import { colors } from '../styles/variables'
 
 interface BlogTemplateProps {
   data: {
@@ -37,6 +38,9 @@ const Post = styled.div`
   position: relative;
   .gatsby-resp-image-figcaption {
     text-align: center;
+  }
+  #quotable-toolbar .quotable-link {
+    color: ${colors.ui.terminal} !important;
   }
 `
 
