@@ -1,6 +1,7 @@
-import * as React from 'react'
+import React, { useEffect } from 'react'
 import { graphql, Link } from 'gatsby'
 import { globalHistory as history } from '@reach/router'
+import Quotable from 'quotable-toolbar'
 
 import Page from '../components/Page'
 import Terminal from '../components/Terminal'
@@ -33,6 +34,7 @@ interface BlogTemplateProps {
 }
 
 const Post = styled.div`
+  position: relative;
   .gatsby-resp-image-figcaption {
     text-align: center;
   }
@@ -43,6 +45,25 @@ const { location } = history
 const BlogTemplate: React.FC<BlogTemplateProps> = ({ data }) => {
   const { category, date, title } = data.markdownRemark.frontmatter
   const { author } = data.site.siteMetadata
+  useEffect(() => {
+    const quotableToolbar = new Quotable({
+      selector: `.blog-post`,
+      isActive: {
+        blockquotes: true,
+        textSelection: true
+      },
+      url: location.href,
+      twitter: {
+        via: 'JoFromAkron',
+        related: 'JoFromAkron',
+        hashtags: ['quotable']
+      }
+    })
+    quotableToolbar.activate()
+    return () => {
+      quotableToolbar.deactivate()
+    }
+  }, [])
   return (
     <IndexLayout>
       <Page>
@@ -58,7 +79,7 @@ const BlogTemplate: React.FC<BlogTemplateProps> = ({ data }) => {
           </small>
           <hr />
           {/* eslint-disable-next-line react/no-danger */}
-          <Post dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
+          <Post className="blog-post" dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
           <hr />
           <p>
             Thank you for reading this post.
