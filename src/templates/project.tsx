@@ -93,8 +93,14 @@ const ProjectTemplate: React.FC<ProjectTemplateProps> = ({ data }) => {
       }
     }
   }, [])
+  const meta = {
+    title,
+    ...(data.markdownRemark.frontmatter.featuredImage?.childImageSharp.fluid.src
+      ? { image: data.markdownRemark.frontmatter.featuredImage?.childImageSharp.fluid.src }
+      : {})
+  }
   return (
-    <IndexLayout title={title}>
+    <IndexLayout {...meta}>
       <Page>
         <Terminal>
           <ASCII text={title} fallback="h1" />
