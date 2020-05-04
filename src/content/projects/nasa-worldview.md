@@ -33,3 +33,5 @@ links:
     url: https://github.com/nasa-gibs/worldview/pulls?utf8=%E2%9C%93&q=+is%3Apr+author%3Alocaljo+
     color: 'white'
 ---
+
+An app for browsing full-resolution, global, daily satellite images. Supports environmental science, humanitarian response, climate research and time-critical applications such as wildfire management, air quality and more.

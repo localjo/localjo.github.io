@@ -17,3 +17,5 @@ links:
     url: https://www.hotosm.org/updates/mapcampaigner-gets-new-look-and-features-for-2020/
     color: 'white'
 ---
+
+MapCampaigner: An app for managing and monitoring field data collection campaigns in OpenStreetMap.

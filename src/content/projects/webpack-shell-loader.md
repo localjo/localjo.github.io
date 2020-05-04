@@ -14,3 +14,5 @@ links:
     url: https://github.com/localjo/shell-loader
     color: 'white'
 ---
+
+A Webpack loader that I built and maintain for running arbitrary shell scripts when loading files.

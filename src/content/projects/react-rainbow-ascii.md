@@ -14,3 +14,5 @@ links:
     url: https://github.com/localjo/react-rainbow-ascii
     color: 'white'
 ---
+
+A React component for generating responsive rainbow ASCII art from text.
