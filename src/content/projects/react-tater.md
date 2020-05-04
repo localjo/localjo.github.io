@@ -3,7 +3,7 @@ title: 'react-tater'
 description: 'A React plugin to add emoji markers and annotations to any element on a page. With algorithms for collision detection and finding nearest points.'
 featuredImage: images/react-tater-screenshot.png
 thumbnail: images/thumbs/react-tater.png
-date: '2020-05-03'
+date: '2010-05-03'
 layout: project
 category: 'Open Source'
 technologies:

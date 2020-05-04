@@ -3,18 +3,18 @@ title: 'Quotable'
 description: 'A library that adds buttons to quotes and text selection that make it quick and easy for people to share quotes from your website.'
 featuredImage: images/quotable-banner.png
 thumbnail: images/thumbs/wordpress-quotable.png
-date: '2020-05-03'
+date: '2014-05-03'
 layout: project
 category: 'Open Source'
 technologies: ['WordPress', 'PHP', 'TypeScript', 'JavaScript', 'ES6', 'ES5', 'Preact', 'CSS', 'HTML']
 links:
-  - title: Plugin Page on WordPress.org
+  - title: WordPress.org
     url: https://wordpress.org/plugins/quotable/
     color: 'blue'
-  - title: TypeScript Library on GitHub
+  - title: TypeScript Repo
     url: https://github.com/localjo/quotable-toolbar
     color: 'white'
-  - title: WordPress Plugin on GitHub
+  - title: WP Plugin Repo
     url: https://github.com/localjo/quotable-wp
     color: 'white'
 ---

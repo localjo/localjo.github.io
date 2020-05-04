@@ -2,7 +2,7 @@
 title: 'Webpack Shell Loader'
 description: 'A Webpack loader that I built and maintain for running arbitrary shell scripts when loading files.'
 thumbnail: images/thumbs/webpack-shell-loader.png
-date: '2020-05-03'
+date: '2011-05-03'
 layout: project
 category: 'Open Source'
 technologies: ['JavaScript', 'webpack', 'Bash']

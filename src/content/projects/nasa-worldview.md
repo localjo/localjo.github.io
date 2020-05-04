@@ -2,7 +2,7 @@
 title: 'NASA Worldview'
 description: 'An app for browsing full-resolution, global, daily satellite images. Supports environmental science, humanitarian response, climate research and time-critical applications such as wildfire management, air quality and more.'
 thumbnail: images/thumbs/nasa-worldview.png
-date: '2020-05-03'
+date: '2020-05-04'
 layout: project
 category: 'Open Source'
 technologies:

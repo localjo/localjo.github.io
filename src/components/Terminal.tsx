@@ -241,18 +241,22 @@ const Main = styled.div`
   .tile-list {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: space-around;
   }
   .tile {
     background: ${transparentize(0.9, colors.white)};
     padding: 15px;
     margin-bottom: 15px;
     width: 100%;
+    min-width: 450px;
     p {
       max-width: 100%;
     }
     @media (min-width: ${getEmSize(breakpoints.lg)}em) {
-      width: 49%;
+      max-width: 49%;
+    }
+    @media (min-width: ${getEmSize(breakpoints.xxl)}em) {
+      max-width: 32.5%;
     }
   }
   .project {
@@ -517,8 +521,8 @@ const Terminal: FC<TerminalProps> = ({ children, title, closedNav = false }) => 
       link: '/travel-blog'
     },
     {
-      name: 'Tech Blog',
-      link: '/tech-blog'
+      name: 'Open Source',
+      link: '/open-source'
     }
   )
   menuLinks.sort((linkA: MenuLink, linkB: MenuLink) => {

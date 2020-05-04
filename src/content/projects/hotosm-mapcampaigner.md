@@ -2,7 +2,7 @@
 title: 'Humanitarian OpenStreetMap Team'
 description: 'MapCampaigner: An app for managing and monitoring field data collection campaigns in OpenStreetMap.'
 thumbnail: images/thumbs/humanitarian-osm-mapcampaigner.png
-date: '2020-05-03'
+date: '2019-12-01'
 layout: project
 category: 'Open Source'
 technologies: ['JavaScript', 'Python', 'jQuery', 'Flask', 'CSS', 'HTML', 'OpenStreetMap API']
