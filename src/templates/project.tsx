@@ -33,7 +33,7 @@ interface ProjectTemplateProps {
         date: string
         category: string
         technologies: string[]
-        featuredImage: {
+        featuredImage?: {
           childImageSharp: {
             fluid: FluidObject
           }
@@ -64,7 +64,7 @@ const { location } = history
 
 const ProjectTemplate: React.FC<ProjectTemplateProps> = ({ data }) => {
   const { category, title, technologies, links, description } = data.markdownRemark.frontmatter
-  let featuredImgFluid = data.markdownRemark.frontmatter.featuredImage.childImageSharp.fluid
+  const featuredImgFluid = data.markdownRemark.frontmatter.featuredImage?.childImageSharp.fluid
   const { author } = data.site.siteMetadata
   useEffect(() => {
     const quotableToolbar = new Quotable({
@@ -92,13 +92,14 @@ const ProjectTemplate: React.FC<ProjectTemplateProps> = ({ data }) => {
         <Terminal>
           <ASCII text={title} fallback="h1" />
           <blockquote>{description}</blockquote>
-          <Img fluid={featuredImgFluid} />
+          {featuredImgFluid && <Img fluid={featuredImgFluid} />}
           <br />
           <p>
             {technologies.map(tech => {
+              const slug = tech.replace(/[^a-zA-Z\d]/g, '').toLowerCase()
               return (
                 <span key={tech}>
-                  <span className={`badge ${tech.toLowerCase()}`}>{tech}</span>{' '}
+                  <span className={`badge ${slug}`}>{tech}</span>{' '}
                 </span>
               )
             })}

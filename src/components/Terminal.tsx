@@ -143,7 +143,9 @@ const Main = styled.div`
     &.css {
       background: ${transparentize(0.2, colors.blue)};
     }
-    &.teal {
+    &.teal,
+    &.react,
+    &.reacthooks {
       background: ${transparentize(0.2, colors.teal)};
     }
     &.purple,
@@ -157,7 +159,8 @@ const Main = styled.div`
     &.pink {
       background: ${transparentize(0.2, colors.pink)};
     }
-    &.red {
+    &.red,
+    &.jest {
       background: ${transparentize(0.2, lighten(0.05, colors.red))};
     }
     &.orange,
