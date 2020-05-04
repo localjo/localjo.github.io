@@ -134,6 +134,7 @@ const Main = styled.div`
     &.yellow,
     &.javascript,
     &.es6,
+    &.babel,
     &.es5 {
       background: ${transparentize(0.2, colors.yellow)};
     }
@@ -141,23 +142,35 @@ const Main = styled.div`
     &.wordpress,
     &.typescript,
     &.webpack,
+    &.python,
+    &.jquery,
+    &.mapbox,
+    &.lodash,
+    &.nasagibsapi,
+    &.docker,
     &.css {
       background: ${transparentize(0.2, colors.blue)};
     }
     &.teal,
     &.react,
+    &.openlayers,
+    &.express,
     &.reacthooks {
       background: ${transparentize(0.2, colors.teal)};
     }
     &.purple,
     &.php,
+    &.eslint,
     &.preact {
       background: ${transparentize(0.2, lighten(0.25, colors.purple))};
     }
-    &.green {
+    &.green,
+    &.openstreetmapapi {
       background: ${transparentize(0.2, colors.green)};
     }
-    &.pink {
+    &.pink,
+    &.seleniumwebdriver,
+    &.sass {
       background: ${transparentize(0.2, colors.pink)};
     }
     &.red,
@@ -165,6 +178,7 @@ const Main = styled.div`
       background: ${transparentize(0.2, lighten(0.05, colors.red))};
     }
     &.orange,
+    &.browserstack,
     &.html {
       background: ${transparentize(0.2, lighten(0.05, colors.orange))};
     }
