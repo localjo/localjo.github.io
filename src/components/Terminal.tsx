@@ -131,16 +131,24 @@ const Main = styled.div`
     display: inline-block;
     padding: 0 0.4em;
     margin: 0 0.1em 0.6em 0;
-    &.yellow {
+    &.yellow,
+    &.javascript,
+    &.es6,
+    &.es5 {
       background: ${transparentize(0.2, colors.yellow)};
     }
-    &.blue {
+    &.blue,
+    &.wordpress,
+    &.typescript,
+    &.css {
       background: ${transparentize(0.2, colors.blue)};
     }
     &.teal {
       background: ${transparentize(0.2, colors.teal)};
     }
-    &.purple {
+    &.purple,
+    &.php,
+    &.preact {
       background: ${transparentize(0.2, lighten(0.25, colors.purple))};
     }
     &.green {
@@ -152,7 +160,8 @@ const Main = styled.div`
     &.red {
       background: ${transparentize(0.2, lighten(0.05, colors.red))};
     }
-    &.orange {
+    &.orange,
+    &.html {
       background: ${transparentize(0.2, lighten(0.05, colors.orange))};
     }
   }
