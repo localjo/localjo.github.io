@@ -6,6 +6,8 @@ import IndexLayout from '../layouts'
 import ASCII from 'react-rainbow-ascii'
 
 const IndexPage = () => {
+  const today = new Date()
+  const isMay4th = today.getMonth() === 4 && today.getDate() === 4
   return (
     <IndexLayout>
       <Page>
@@ -42,6 +44,23 @@ const IndexPage = () => {
             💚 I'm interested in working with teams that have a<br />
             mission or product I'm passionate about.
           </p>
+          {isMay4th && (
+            <pre>
+              {`          .                            .                      .
+  .                  .             -)------+====+       .
+                           -)----====    ,'   ,'   .                 .
+              .                  \`.  \`.,;___,'                .
+                                   \`, |____l_
+                     _,....------c==]""______ |,,,,,,.....____ _
+    .      .        "-:_____________  |____l_|]'''''''''''       .     .
+                                  ,'"",'.   \`.
+         .                 -)-----====   \`.   \`.              LS
+                     .            -)-------+====+       .            .
+             .                               .
+
+                       // MAY THE FOURTH BE WITH YOU \\\\`}
+            </pre>
+          )}
         </Terminal>
       </Page>
     </IndexLayout>
