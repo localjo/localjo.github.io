@@ -10,7 +10,7 @@ import IndexLayout from '../layouts'
 import ASCII from 'react-rainbow-ascii'
 import styled from '@emotion/styled'
 import { colors } from '../styles/variables'
-import { FluidObject } from 'gatsby-image'
+import { FluidObject, FixedObject } from 'gatsby-image'
 
 interface ProjectTemplateProps {
   data: {
@@ -36,6 +36,11 @@ interface ProjectTemplateProps {
         featuredImage?: {
           childImageSharp: {
             fluid: FluidObject
+          }
+        }
+        thumbnail?: {
+          childImageSharp: {
+            fixed: FixedObject
           }
         }
         links: [
@@ -65,24 +70,27 @@ const { location } = history
 const ProjectTemplate: React.FC<ProjectTemplateProps> = ({ data }) => {
   const { category, title, technologies, links, description } = data.markdownRemark.frontmatter
   const featuredImgFluid = data.markdownRemark.frontmatter.featuredImage?.childImageSharp.fluid
+  const thumbnail = data.markdownRemark.frontmatter.thumbnail?.childImageSharp.fixed
   const { author } = data.site.siteMetadata
   useEffect(() => {
-    const quotableToolbar = new Quotable({
-      selector: `.blog-post`,
-      isActive: {
-        blockquotes: true,
-        textSelection: true
-      },
-      url: location.href,
-      twitter: {
-        via: 'JoFromAkron',
-        related: 'JoFromAkron',
-        hashtags: ['OpenSource', 'Quotable']
+    if (data.markdownRemark.html?.length > 0) {
+      const quotableToolbar = new Quotable({
+        selector: `.blog-post`,
+        isActive: {
+          blockquotes: true,
+          textSelection: true
+        },
+        url: location.href,
+        twitter: {
+          via: 'JoFromAkron',
+          related: 'JoFromAkron',
+          hashtags: ['OpenSource', 'Quotable']
+        }
+      })
+      quotableToolbar.activate()
+      return () => {
+        quotableToolbar.deactivate()
       }
-    })
-    quotableToolbar.activate()
-    return () => {
-      quotableToolbar.deactivate()
     }
   }, [])
   const pageTitle = `${category} Projects`
@@ -92,7 +100,7 @@ const ProjectTemplate: React.FC<ProjectTemplateProps> = ({ data }) => {
         <Terminal>
           <ASCII text={title} fallback="h1" />
           <blockquote>{description}</blockquote>
-          {featuredImgFluid && <Img fluid={featuredImgFluid} />}
+          {featuredImgFluid ? <Img fluid={featuredImgFluid} /> : thumbnail && <Img fixed={thumbnail} />}
           <br />
           <p>
             {technologies.map(tech => {
@@ -105,9 +113,13 @@ const ProjectTemplate: React.FC<ProjectTemplateProps> = ({ data }) => {
             })}
           </p>
           <hr />
-          {/* eslint-disable-next-line react/no-danger */}
-          <Post className="blog-post" dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
-          <hr />
+          {data.markdownRemark.html?.length > 0 ? (
+            <>
+              {/* eslint-disable-next-line react/no-danger */}
+              <Post className="blog-post" dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
+              <hr />
+            </>
+          ) : null}
           <h2 id="#project-links">Project links:</h2>
           <p>
             {links.map(link => {
@@ -162,6 +174,13 @@ export const query = graphql`
           childImageSharp {
             fluid(maxWidth: 1140) {
               ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        thumbnail {
+          childImageSharp {
+            fixed(width: 235) {
+              ...GatsbyImageSharpFixed
             }
           }
         }

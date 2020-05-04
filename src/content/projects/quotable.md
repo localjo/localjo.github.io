@@ -2,6 +2,7 @@
 title: 'Quotable'
 description: 'A library that adds buttons to quotes and text selection that make it quick and easy for people to share quotes from your website.'
 featuredImage: images/quotable-banner.png
+thumbnail: images/thumbs/wordpress-quotable.png
 date: '2020-05-03'
 layout: project
 category: 'Open Source'

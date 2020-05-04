@@ -140,6 +140,7 @@ const Main = styled.div`
     &.blue,
     &.wordpress,
     &.typescript,
+    &.webpack,
     &.css {
       background: ${transparentize(0.2, colors.blue)};
     }
