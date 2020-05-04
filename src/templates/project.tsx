@@ -68,7 +68,7 @@ const Post = styled.div`
 const { location } = history
 
 const ProjectTemplate: React.FC<ProjectTemplateProps> = ({ data }) => {
-  const { category, title, technologies, links, description } = data.markdownRemark.frontmatter
+  const { title, technologies, links, description } = data.markdownRemark.frontmatter
   const featuredImgFluid = data.markdownRemark.frontmatter.featuredImage?.childImageSharp.fluid
   const thumbnail = data.markdownRemark.frontmatter.thumbnail?.childImageSharp.fixed
   const { author } = data.site.siteMetadata
@@ -93,9 +93,8 @@ const ProjectTemplate: React.FC<ProjectTemplateProps> = ({ data }) => {
       }
     }
   }, [])
-  const pageTitle = `${category} Projects`
   return (
-    <IndexLayout title={pageTitle}>
+    <IndexLayout title={title}>
       <Page>
         <Terminal>
           <ASCII text={title} fallback="h1" />

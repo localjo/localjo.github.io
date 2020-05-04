@@ -44,7 +44,7 @@ interface OpenSourceIndexProps {
 
 const OpenSourceIndex: React.FC<OpenSourceIndexProps> = ({ data }) => {
   return (
-    <IndexLayout>
+    <IndexLayout title="Open Source">
       <Page>
         <Terminal title="/open-source">
           <ASCII text="Open Source" fallback="h1" />
