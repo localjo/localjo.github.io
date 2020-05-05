@@ -105,7 +105,7 @@ const ProjectTemplate: React.FC<ProjectTemplateProps> = ({ data }) => {
   }, [])
   const meta = {
     pathname: fields.slug,
-    description: excerpt,
+    description,
     type: 'article',
     title,
     ...(socialImgFixed ? { image: socialImgFixed } : {})
