@@ -38,6 +38,11 @@ interface ProjectTemplateProps {
             fluid: FluidObject
           }
         }
+        socialImage?: {
+          childImageSharp: {
+            fixed: FixedObject
+          }
+        }
         thumbnail?: {
           childImageSharp: {
             fixed: FixedObject
@@ -70,6 +75,7 @@ const { location } = history
 const ProjectTemplate: React.FC<ProjectTemplateProps> = ({ data }) => {
   const { title, technologies, links, description } = data.markdownRemark.frontmatter
   const featuredImgFluid = data.markdownRemark.frontmatter.featuredImage?.childImageSharp.fluid
+  const socialImgFixed = data.markdownRemark.frontmatter.socialImage?.childImageSharp.fixed.src
   const thumbnail = data.markdownRemark.frontmatter.thumbnail?.childImageSharp.fixed
   const { author } = data.site.siteMetadata
   useEffect(() => {
@@ -95,9 +101,7 @@ const ProjectTemplate: React.FC<ProjectTemplateProps> = ({ data }) => {
   }, [])
   const meta = {
     title,
-    ...(data.markdownRemark.frontmatter.featuredImage?.childImageSharp.fluid.src
-      ? { image: data.markdownRemark.frontmatter.featuredImage?.childImageSharp.fluid.src }
-      : {})
+    ...(socialImgFixed ? { image: socialImgFixed } : {})
   }
   return (
     <IndexLayout {...meta}>
@@ -177,8 +181,15 @@ export const query = graphql`
         description
         featuredImage {
           childImageSharp {
-            fluid(maxWidth: 1140) {
+            fluid(maxWidth: 1544) {
               ...GatsbyImageSharpFluid
+            }
+          }
+        }
+        socialImage {
+          childImageSharp {
+            fixed(width: 1200) {
+              ...GatsbyImageSharpFixed
             }
           }
         }
