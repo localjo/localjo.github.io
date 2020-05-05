@@ -515,9 +515,11 @@ const Terminal: FC<TerminalProps> = ({ children, title, closedNav = false, isMax
   }, [footerRef])
 
   let menuLinks = data.allMarkdownRemark.edges.map((edge: any) => {
+    const { frontmatter, fields } = edge.node
+    const { title } = frontmatter
     return {
-      name: edge.node.frontmatter.title,
-      link: edge.node.fields.slug
+      name: title === 'Thank you!' ? 'Thanks' : title,
+      link: fields.slug
     }
   })
   menuLinks.push(
