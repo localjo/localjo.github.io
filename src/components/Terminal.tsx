@@ -147,6 +147,7 @@ const Main = styled.div`
     &.mapbox,
     &.lodash,
     &.nasagibsapi,
+    &.materialui,
     &.docker,
     &.css {
       background: ${transparentize(0.2, colors.blue)};
@@ -155,12 +156,15 @@ const Main = styled.div`
     &.react,
     &.openlayers,
     &.express,
+    &.reactrouter,
     &.reacthooks {
       background: ${transparentize(0.2, colors.teal)};
     }
     &.purple,
     &.php,
     &.eslint,
+    &.redux,
+    &.bootstrap,
     &.preact {
       background: ${transparentize(0.2, lighten(0.25, colors.purple))};
     }
@@ -524,6 +528,10 @@ const Terminal: FC<TerminalProps> = ({ children, title, closedNav = false, isMax
     {
       name: 'Open Source',
       link: '/open-source'
+    },
+    {
+      name: 'Sample Code',
+      link: '/code-demos'
     }
   )
   menuLinks.sort((linkA: MenuLink, linkB: MenuLink) => {
