@@ -46,7 +46,7 @@ const OpenSourceIndex: React.FC<OpenSourceIndexProps> = ({ data }) => {
   return (
     <IndexLayout title="Open Source">
       <Page>
-        <Terminal title="/open-source">
+        <Terminal title="/open-source" isMax={true}>
           <ASCII text="Open Source" fallback="h1" />
           <br />
           <p>

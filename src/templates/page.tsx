@@ -35,7 +35,7 @@ const PageTemplate: React.FC<PageTemplateProps> = ({ data }) => {
   return (
     <IndexLayout>
       <Page>
-        <Terminal>
+        <Terminal isMax={data.markdownRemark.frontmatter.title.toLowerCase() === 'code demos'}>
           <ASCII text={data.markdownRemark.frontmatter.title} fallback="h1" />
           <br />
           {/* eslint-disable-next-line react/no-danger */}

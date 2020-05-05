@@ -452,6 +452,7 @@ interface TerminalProps {
     }
   }
   closedNav?: boolean
+  isMax?: boolean
 }
 
 interface MenuLink {
@@ -459,12 +460,12 @@ interface MenuLink {
   link: string
 }
 
-const Terminal: FC<TerminalProps> = ({ children, title, closedNav = false }) => {
+const Terminal: FC<TerminalProps> = ({ children, title, closedNav = false, isMax = false }) => {
   const { location } = history
   const [value, setValue] = useState<string>()
   const [isMounted, setIsMounted] = useState<boolean>(false)
   const [navOpen, setNavOpen] = useState<boolean>(true)
-  const [maxWidth, setMaxWidth] = useState<number | string>(widths.lg)
+  const [maxWidth, setMaxWidth] = useState<number | string>(isMax ? 'none' : widths.lg)
   const promptRef = useRef<HTMLInputElement>(null)
   const footerRef = useRef<HTMLInputElement>(null)
   const data = useStaticQuery(graphql`
