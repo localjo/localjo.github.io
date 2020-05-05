@@ -25,6 +25,9 @@ interface BlogTemplateProps {
     markdownRemark: {
       html: string
       excerpt: string
+      fields: {
+        slug: string
+      }
       frontmatter: {
         title: string
         date: string
@@ -68,8 +71,14 @@ const BlogTemplate: React.FC<BlogTemplateProps> = ({ data }) => {
       quotableToolbar.deactivate()
     }
   }, [])
+  const meta = {
+    pathname: data.markdownRemark.fields.slug,
+    title,
+    type: 'article',
+    description: data.markdownRemark.excerpt
+  }
   return (
-    <IndexLayout>
+    <IndexLayout {...meta}>
       <Page>
         <Terminal>
           <ASCII text={`${category} Blog`} fallback="h2" />
@@ -123,6 +132,9 @@ export const query = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       excerpt
+      fields {
+        slug
+      }
       frontmatter {
         title
         date(formatString: "MMMM Do, YYYY")

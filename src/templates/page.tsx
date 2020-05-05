@@ -32,8 +32,12 @@ interface PageTemplateProps {
 }
 
 const PageTemplate: React.FC<PageTemplateProps> = ({ data }) => {
+  const meta = {
+    title: data.markdownRemark.frontmatter.title,
+    description: data.markdownRemark.excerpt
+  }
   return (
-    <IndexLayout>
+    <IndexLayout {...meta}>
       <Page>
         <Terminal isMax={data.markdownRemark.frontmatter.title.toLowerCase() === 'code demos'}>
           <ASCII text={data.markdownRemark.frontmatter.title} fallback="h1" />

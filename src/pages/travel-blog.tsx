@@ -26,8 +26,13 @@ interface BlogIndexProps {
 }
 
 const TravelBlogIndex: React.FC<BlogIndexProps> = ({ data }) => {
+  const meta = {
+    pathname: '/travel-blog',
+    title: 'Travel Blog',
+    description: 'My Personal Travel Stories'
+  }
   return (
-    <IndexLayout>
+    <IndexLayout {...meta}>
       <Page>
         <Terminal title="/travel-blog">
           <ASCII text="Travel Blog" fallback="h1" />
