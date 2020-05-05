@@ -1,9 +1,9 @@
 ---
 layout: page
-title: 'Code Demos'
+title: 'Sample Code'
 ---
 
-# Samples of My Work
+# Code Demos
 
 The projects on this page show a sample of my coding abilities with different technologies. I often build these to learn about a new technology, or as examples to use to mentor other developers. Some of these are quite old, dating back all the way to the beginning of my career. I'm happy to discuss these demos more in depth.
 

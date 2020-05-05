@@ -32,18 +32,20 @@ interface PageTemplateProps {
 }
 
 const PageTemplate: React.FC<PageTemplateProps> = ({ data }) => {
+  const { fields, frontmatter, excerpt, html } = data.markdownRemark
   const meta = {
-    title: data.markdownRemark.frontmatter.title,
-    description: data.markdownRemark.excerpt
+    pathname: fields.slug,
+    title: frontmatter.title,
+    description: excerpt
   }
   return (
     <IndexLayout {...meta}>
       <Page>
-        <Terminal isMax={data.markdownRemark.frontmatter.title.toLowerCase() === 'code demos'}>
-          <ASCII text={data.markdownRemark.frontmatter.title} fallback="h1" />
+        <Terminal isMax={fields.slug === '/code-demos/'}>
+          <ASCII text={frontmatter.title} fallback="h1" />
           <br />
           {/* eslint-disable-next-line react/no-danger */}
-          <div dangerouslySetInnerHTML={{ __html: data.markdownRemark.html }} />
+          <div dangerouslySetInnerHTML={{ __html: html }} />
         </Terminal>
       </Page>
     </IndexLayout>
