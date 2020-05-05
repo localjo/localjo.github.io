@@ -16,9 +16,10 @@ interface ISEO {
   title?: string
   image?: string
   pathname?: string
+  type?: string
 }
 
-const IndexLayout: React.FC<ISEO> = ({ children, description = '', lang = 'en', meta = [], image, title, pathname }: ISEO) => {
+const IndexLayout: React.FC<ISEO> = ({ children, description = '', lang = 'en', meta = [], image, title, pathname, type }: ISEO) => {
   const { site } = useStaticQuery(
     graphql`
       query {
@@ -55,6 +56,7 @@ const IndexLayout: React.FC<ISEO> = ({ children, description = '', lang = 'en', 
           { property: 'og:description', content: metaDescription },
           { property: 'og:image', content: metaImage },
           ...(canonical ? [{ property: 'og:url', content: site.siteMetadata.siteUrl }] : []),
+          ...(type ? [{ property: 'og:type', content: type }] : []),
           { name: 'twitter:title', content: site.siteMetadata.title },
           { name: 'twitter:description', content: metaDescription },
           { name: 'twitter:image', content: metaImage },

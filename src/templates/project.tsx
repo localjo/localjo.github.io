@@ -27,6 +27,9 @@ interface ProjectTemplateProps {
     markdownRemark: {
       html: string
       excerpt: string
+      fields: {
+        slug: string
+      }
       frontmatter: {
         title: string
         description: string
@@ -73,10 +76,11 @@ const Post = styled.div`
 const { location } = history
 
 const ProjectTemplate: React.FC<ProjectTemplateProps> = ({ data }) => {
-  const { title, technologies, links, description } = data.markdownRemark.frontmatter
-  const featuredImgFluid = data.markdownRemark.frontmatter.featuredImage?.childImageSharp.fluid
-  const socialImgFixed = data.markdownRemark.frontmatter.socialImage?.childImageSharp.fixed.src
-  const thumbnail = data.markdownRemark.frontmatter.thumbnail?.childImageSharp.fixed
+  const { fields, excerpt, frontmatter } = data.markdownRemark
+  const { title, technologies, links, description } = frontmatter
+  const featuredImgFluid = frontmatter.featuredImage?.childImageSharp.fluid
+  const socialImgFixed = frontmatter.socialImage?.childImageSharp.fixed.src
+  const thumbnail = frontmatter.thumbnail?.childImageSharp.fixed
   const { author } = data.site.siteMetadata
   useEffect(() => {
     if (data.markdownRemark.html?.length > 0) {
@@ -100,6 +104,9 @@ const ProjectTemplate: React.FC<ProjectTemplateProps> = ({ data }) => {
     }
   }, [])
   const meta = {
+    pathname: fields.slug,
+    description: excerpt,
+    type: 'article',
     title,
     ...(socialImgFixed ? { image: socialImgFixed } : {})
   }
@@ -176,6 +183,9 @@ export const query = graphql`
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       excerpt
+      fields {
+        slug
+      }
       frontmatter {
         title
         description
