@@ -76,7 +76,7 @@ const Post = styled.div`
 const { location } = history
 
 const ProjectTemplate: React.FC<ProjectTemplateProps> = ({ data }) => {
-  const { fields, excerpt, frontmatter } = data.markdownRemark
+  const { fields, frontmatter } = data.markdownRemark
   const { title, technologies, links, description } = frontmatter
   const featuredImgFluid = frontmatter.featuredImage?.childImageSharp.fluid
   const socialImgFixed = frontmatter.socialImage?.childImageSharp.fixed.src
