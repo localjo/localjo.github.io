@@ -59,7 +59,7 @@ _[Mokriya](https://mokriya.com/) (July 2018 to July 2019)_
 
 ### Full Stack Engineer
 
-_[NASA [Goddard, GIBS/Worldview, ASRC Contract]](https://www.nasa.gov/goddard) (July 2017 to February 2018)_
+_[NASA [Goddard, GIBS/Worldview, ASRC]](https://www.nasa.gov/goddard) (July 2017 to February 2018)_
 
 <pre aria-hidden="true">
         _..._
@@ -93,7 +93,7 @@ _[NASA [Goddard, GIBS/Worldview, ASRC Contract]](https://www.nasa.gov/goddard) (
 
 ### Full Stack Engineer (Remote)
 
-_[Sparkart Group, Inc [Contractor]](http://www.sparkart.com/) (June 2014 to June 2017)_
+_[Sparkart Group, Inc](http://www.sparkart.com/) (June 2014 to June 2017)_
 
 <pre aria-hidden="true">
            __
@@ -116,7 +116,7 @@ _[Sparkart Group, Inc [Contractor]](http://www.sparkart.com/) (June 2014 to June
 
 - Increased the productivity of Front End Developers on the team by creating build scripts, command line interfaces, chat bots and other tools to support their work.
 - Used React/d3 to build an app for streaming live [experiment data from ISS](http://www.spacetango.com/), and React/AWS Lambda to build a web crawler for lawyers to track IP infringements.
-- Saved the company thousands of dollars a month by migrating an app platform used for clients like [Bon Jovi](http://bonjovi.com/), [Janet Jackson](https://www.janetjackson.com/), [Jason Aldean](https://www.jasonaldean.com/), [Carrie Underwood](https://www.carrieunderwood.fm/), [The Immunity Project](http://www.immunityproject.org/), and [Space Tango](http://www.spacetango.com), [UFC](https://www.ufcfightclub.com/) from a Ruby monolith to Node.js micro-services.
+- Saved the company thousands of dollars a month by migrating an app platform that powered the websites of [Bon Jovi](http://bonjovi.com/), [Janet Jackson](https://www.janetjackson.com/), [Jason Aldean](https://www.jasonaldean.com/), [Carrie Underwood](https://www.carrieunderwood.fm/), [The Immunity Project](http://www.immunityproject.org/), [Space Tango](http://www.spacetango.com), and [UFC](https://www.ufcfightclub.com/) from a Ruby monolith to Node.js micro-services.
 
 ### Director of Media and Front End Engineer (Volunteer)
 
