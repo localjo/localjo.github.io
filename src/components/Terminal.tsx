@@ -252,7 +252,9 @@ const Main = styled.div`
     padding: 15px;
     margin-bottom: 15px;
     width: 100%;
-    min-width: 450px;
+    @media (min-width: 540px) {
+      min-width: 450px;
+    }
     p {
       max-width: 100%;
     }
