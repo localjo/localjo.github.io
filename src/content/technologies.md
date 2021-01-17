@@ -23,6 +23,7 @@ These are my favorite technologies to work with.
 [Babel](https://babeljs.io/){class="yellow badge"}
 [Redux](https://redux.js.org/){class="purple badge"}
 [GatsbyJS](https://www.gatsbyjs.org/){class="purple badge"}
+[MongoDB](https://www.mongodb.com/){class="green badge"}
 [Express](https://expressjs.com/){class="badge"}
 [Lodash](https://lodash.com/){class="badge"}
 [jQuery](https://jquery.com/){class="blue badge"}
