@@ -11436,7 +11436,7 @@ querystringify@^2.1.1:
   resolved "https://registry.yarnpkg.com/querystringify/-/querystringify-2.1.1.tgz#60e5a5fd64a7f8bfa4d2ab2ed6fdf4c85bad154e"
   integrity sha512-w7fLxIRCRT7U8Qu53jQnJyPkYZIaR4n5151KMfcJlO/A9397Wxb1amJvROTK6TOnp7PfoAmg/qXiNHI+08jRfA==
 
-quotable-toolbar@1.0.3:
+quotable-toolbar@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/quotable-toolbar/-/quotable-toolbar-1.0.3.tgz#4f3264e4be7dd0b5da1e96ad0a9c7f7e7a28197b"
   integrity sha512-j6HkfEt6iKUnQ+SFn1GsWHfTUdl3zRbTB0tb1pAtxiGHl6rNh4yygjsLOQKDtw3BoHo9TfG5L95ROr8us6iS4Q==
