@@ -3,8 +3,8 @@ import { Link, navigate, graphql, useStaticQuery } from 'gatsby'
 import styled from '@emotion/styled'
 import { globalHistory as history } from '@reach/router'
 import AutosizeInput from 'react-input-autosize'
-import { colors, breakpoints, widths } from '../styles/variables'
 import { lighten, transparentize, darken } from 'polished'
+import { colors, breakpoints, widths } from '../styles/variables'
 import { getEmSize } from '../styles/mixins'
 
 const Window = styled.div`
@@ -516,7 +516,7 @@ const Terminal: FC<TerminalProps> = ({ children, title, closedNav = false, isMax
     }
   }, [footerRef])
 
-  let menuLinks = data.allMarkdownRemark.edges.map((edge: any) => {
+  const menuLinks = data.allMarkdownRemark.edges.map((edge: any) => {
     const { frontmatter, fields } = edge.node
     const { title } = frontmatter
     return {
@@ -539,8 +539,8 @@ const Terminal: FC<TerminalProps> = ({ children, title, closedNav = false, isMax
     }
   )
   menuLinks.sort((linkA: MenuLink, linkB: MenuLink) => {
-    var a = linkA.name.toLowerCase()
-    var b = linkB.name.toLowerCase()
+    const a = linkA.name.toLowerCase()
+    const b = linkB.name.toLowerCase()
     return a < b ? -1 : a > b ? 1 : 0
   })
 
@@ -580,7 +580,7 @@ const Terminal: FC<TerminalProps> = ({ children, title, closedNav = false, isMax
         case 13:
           const selected = commandNames.filter(command => command.toLowerCase().startsWith(value.toLowerCase()))[0]
           const command = commands[selected]
-          const { action } = command ? command : { action: () => {} }
+          const { action } = command || { action: () => {} }
           if (typeof action === 'function') {
             action()
           }
@@ -596,14 +596,14 @@ const Terminal: FC<TerminalProps> = ({ children, title, closedNav = false, isMax
     }
   }
   const titleBarLocation = title || location.pathname
-  const titleBarText = isMounted ? `you@localjo-portfolio: ~${titleBarLocation}` : ''
+  const titleBarText = isMounted ? `you@josprague-portfolio: ~${titleBarLocation}` : ''
   return (
     <Window onClick={handleWindowClick} style={{ maxWidth }}>
       <TitleBar aria-hidden="true">
         <TrafficLight>
-          <span className="red" onClick={() => navigate('/')}></span>
-          <span className="yellow" onClick={() => navigate('/ascii')}></span>
-          <span className="green" onClick={() => (maxWidth === 'none' ? setMaxWidth(widths.lg) : setMaxWidth('none'))}></span>
+          <span className="red" onClick={() => navigate('/')} />
+          <span className="yellow" onClick={() => navigate('/ascii')} />
+          <span className="green" onClick={() => (maxWidth === 'none' ? setMaxWidth(widths.lg) : setMaxWidth('none'))} />
         </TrafficLight>
         <p title={titleBarText}>{titleBarText}</p>
       </TitleBar>
@@ -640,9 +640,8 @@ const Terminal: FC<TerminalProps> = ({ children, title, closedNav = false, isMax
                     .filter(command => {
                       if (value && value.length > 0) {
                         return command.toLowerCase().startsWith(value.toLowerCase())
-                      } else {
-                        return false
                       }
+                      return false
                     })
                     .map((command, i, arr) => {
                       const isLast = i === arr.length - 1

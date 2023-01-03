@@ -8,7 +8,7 @@ category: 'Code Demos'
 technologies: ['TypeScript', 'React', 'Redux', 'React Router', 'Material UI', 'react-transition-group', 'Lodash', 'Jest']
 links:
   - title: Live Demo
-    url: https://iamlocaljo.com/trivia-demo/
+    url: https://josprague.com/trivia-demo/
     color: 'green'
   - title: GitHub Repo
     url: https://github.com/localjo/trivia-demo

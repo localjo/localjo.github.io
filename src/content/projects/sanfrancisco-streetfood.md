@@ -8,7 +8,7 @@ category: 'Code Demos'
 technologies: ['TypeScript', 'React', 'Mapbox GL']
 links:
   - title: Live Demo
-    url: https://iamlocaljo.com/sanfrancisco-streetfood/
+    url: https://josprague.com/sanfrancisco-streetfood/
     color: 'green'
   - title: GitHub Repo
     url: https://github.com/localjo/sanfrancisco-streetfood

@@ -8,7 +8,7 @@ category: 'Code Demos'
 technologies: ['JavaScript', 'HTML', 'QUnit', 'Bootstrap']
 links:
   - title: Live Demo
-    url: http://iamlocaljo.com/table-sorter/
+    url: http://josprague.com/table-sorter/
     color: 'green'
   - title: GitHub Repo
     url: https://github.com/localjo/table-sorter

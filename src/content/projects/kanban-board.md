@@ -8,7 +8,7 @@ category: 'Code Demos'
 technologies: ['JavaScript', 'React', 'CSS', 'React Drag n Drop', 'Jest']
 links:
   - title: Live Demo
-    url: http://iamlocaljo.com/kanban-board-demo/
+    url: http://josprague.com/kanban-board-demo/
     color: 'green'
   - title: GitHub Repo
     url: https://github.com/localjo/kanban-board-demo/

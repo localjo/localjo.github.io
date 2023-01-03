@@ -9,7 +9,7 @@ title: 'Experience'
 
 ### Full Stack Software Engineer
 
-_[Consultant](https://iamlocaljo.com/) (July 2014 to Present)_
+_[Consultant](https://d5n5.com/) (July 2014 to Present)_
 
 <pre aria-hidden="true">
    ._________________.
@@ -29,9 +29,9 @@ _[Consultant](https://iamlocaljo.com/) (July 2014 to Present)_
 
 - As a consultant, I work on programming projects I'm passionate about and that have a **positive impact** on the world.
 - Rebuilt a **humanitarian mapping app** for the [Humanitarian OpenStreetMap Team](https://www.hotosm.org/).
-- Contributed to several [**open source** projects](https://iamlocaljo.com/open-source/) including **NASA Worldview** and **Webpack**.
+- Contributed to several [**open source** projects](https://josprague.com/open-source/) including **NASA Worldview** and **Webpack**.
 - Wrote [custom plugins for **WordPress**](https://wordpress.org/plugins/quotable/) and [Discourse](https://www.discourse.org/).
-- Released several [open source **JavaScript/TypeScript** libraries](https://iamlocaljo.com/open-source/).
+- Released several [open source **JavaScript/TypeScript** libraries](https://josprague.com/open-source/).
 
 ### Senior Software Engineer (Remote)
 

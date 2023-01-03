@@ -8,7 +8,7 @@ category: 'Open Source'
 technologies: ['TypeScript', 'React', 'ASCII']
 links:
   - title: Demo
-    url: https://iamlocaljo.com/ascii
+    url: https://josprague.com/ascii
     color: 'green'
   - title: NPM Package
     url: https://www.npmjs.com/package/react-rainbow-ascii

@@ -10,7 +10,7 @@ technologies:
   ['JavaScript', 'React', 'React Hooks', 'Jest', 'create-react-library', 'styled-components', 'Unicode Emoji', 'Collision Detection']
 links:
   - title: Live Demo
-    url: https://iamlocaljo.com/react-tater-demo/
+    url: https://josprague.com/react-tater-demo/
     color: 'green'
   - title: NPM Package
     url: https://www.npmjs.com/package/react-tater
@@ -21,7 +21,7 @@ links:
 
 This project started as my submission to a [coding challenge](https://github.com/graphy-engineering/graphy-react-challenge). The challenge was to add the ability to add annotations to a demo React app. I decided to create a solution as a reusable React module that could be installed in any React project, and when I [published my solution on GitHub](https://github.com/localjo/react-tater), it got over 200 stars overnight, so I decided to maintain it as an open source project.
 
-I named the library "Tater" as a fun play on the words "annotator" and "potato". I had a lot of fun adding potatoes to web pages while testing it. 🥔 There is [a live demo of this library with an interactive tour](https://iamlocaljo.com/react-tater-demo/) where you can add potatoes to the page or take a tour that explains how Tater works.
+I named the library "Tater" as a fun play on the words "annotator" and "potato". I had a lot of fun adding potatoes to web pages while testing it. 🥔 There is [a live demo of this library with an interactive tour](https://josprague.com/react-tater-demo/) where you can add potatoes to the page or take a tour that explains how Tater works.
 
 ## Technical Details
 

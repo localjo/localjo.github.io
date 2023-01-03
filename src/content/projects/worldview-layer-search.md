@@ -8,7 +8,7 @@ category: 'Code Demos'
 technologies: ['JavaScript', 'React', 'NASA GIBS API']
 links:
   - title: Live Demo
-    url: http://iamlocaljo.com/layers-search/
+    url: http://josprague.com/layers-search/
     color: 'green'
   - title: GitHub Repo
     url: https://github.com/localjo/layers-search
