@@ -35,6 +35,33 @@ _[Consultant](https://d5n5.com/) (July 2014 to Present)_
 
 ### Senior Software Engineer (Remote)
 
+_[Pinto](https://pinto.co/) (July 2019 to July 2020)_
+
+<pre aria-hidden="true">
+          _
+         //
+     _  || __
+  .--\\`||/.'--.
+ / .-'.- +\`-._V`.
+JV `".'/||\\`-' V \
+| V V|/ |/ \| V V  L
+J VV  V  V  V   V V|
+ L V  V V V VV V V F
+ |V V V  V  V  VV /
+ J  V   V V  V  V/
+  \V  V    V  V J
+   L V  V  V  V F
+   JV V  V  V V/
+    \ V    V .'
+     `-.V_.-'
+</pre>
+
+- Built a custom [ETL](https://en.wikipedia.org/wiki/Extract,_transform,_load) tool to support our nutrition science team's formulas for calculating nutritional information for Whole Foods and other national grocery chains.
+- Built a tool for automatically creating Amazon mturk tasks used to process and validate data for millions of products.
+- Built and maintained several React apps used by our nutrition science team to manage and analyze data.
+
+### Senior Software Engineer (Remote)
+
 _[Mokriya](https://mokriya.com/) (July 2018 to July 2019)_
 
 <pre aria-hidden="true">
