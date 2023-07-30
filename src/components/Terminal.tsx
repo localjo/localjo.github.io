@@ -526,10 +526,6 @@ const Terminal: FC<TerminalProps> = ({ children, title, closedNav = false, isMax
   })
   menuLinks.push(
     {
-      name: 'Travel Blog',
-      link: '/travel-blog'
-    },
-    {
       name: 'Open Source',
       link: '/open-source'
     },
