@@ -1,9 +1,9 @@
 {
-  "name": "iamlocaljo.com",
+  "name": "josprague.com",
   "description": "Software Engineer, TypeScript/React/Python",
   "version": "1.0.0",
   "private": true,
-  "author": "Jo Sprague <josiah.sprague@gmail.com>",
+  "author": "Jo Sprague <git@josprague.com>",
   "keywords": [
     "react",
     "typescript",

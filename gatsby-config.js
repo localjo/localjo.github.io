@@ -1,16 +1,14 @@
-'use strict'
-
 module.exports = {
   siteMetadata: {
     title: 'Jo Sprague - Software Engineer',
     description: `I work with JavaScript/TypeScript, React, Python and related tools and frameworks. I'm interested in working with teams that have a mission or product I'm passionate about.`,
     keywords: 'javascript, typescript, react, python, humanitarian',
-    siteUrl: 'https://iamlocaljo.com',
-    siteImage: 'https://iamlocaljo.com/social.png',
+    siteUrl: 'https://josprague.com',
+    siteImage: 'https://josprague.com/social.png',
     author: {
       name: 'Jo Sprague',
-      url: 'https://iamlocaljo.com',
-      email: 'josiah.sprague@gmail.com'
+      url: 'https://josprague.com',
+      email: 'web@josprague.com'
     }
   },
   plugins: [
@@ -46,7 +44,7 @@ module.exports = {
       options: {
         trackingUrl: 'cdn.usefathom.com',
         siteId: 'NACYXQJM',
-        whitelistHostnames: ['iamlocaljo.com']
+        whitelistHostnames: ['josprague.com']
       }
     },
     {
@@ -89,7 +87,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-canonical-urls',
       options: {
-        siteUrl: 'https://iamlocaljo.com'
+        siteUrl: 'https://josprague.com'
       }
     },
     'gatsby-plugin-emotion',
