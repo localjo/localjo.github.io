@@ -10,6 +10,7 @@ These are my favorite technologies to work with.
 [TypeScript](https://www.typescriptlang.org/){class="blue badge"}
 [React](https://reactjs.org/){class="teal badge"}
 [Node.js](https://nodejs.org/){class="green badge"}
+[Expo](https://expo.dev/){class="purple badge"}
 [GraphQL](https://graphql.org/){class="pink badge"}
 [webpack](https://webpack.js.org/){class="blue badge"}
 [~~bash~~ zsh](https://ohmyz.sh/){class="badge"}
