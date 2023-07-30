@@ -528,11 +528,11 @@ const Terminal: FC<TerminalProps> = ({ children, title, closedNav = false, isMax
     {
       name: 'Open Source',
       link: '/open-source'
-    },
-    {
-      name: 'Sample Code',
-      link: '/code-demos'
     }
+    // {
+    //   name: 'Sample Code',
+    //   link: '/code-demos'
+    // }
   )
   menuLinks.sort((linkA: MenuLink, linkB: MenuLink) => {
     const a = linkA.name.toLowerCase()
