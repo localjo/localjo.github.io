@@ -21,7 +21,7 @@ const IndexPage = () => {
             Python and related tools and frameworks.
           </p>
           <p className="emoji">
-            🚀 I have 10 years of experience working for teams like
+            🚀 I have 15+ years of experience working for teams like
             <br />
             <a
               className="blue badge"
@@ -30,13 +30,21 @@ const IndexPage = () => {
             >
               NASA
             </a>{' '}
-            and the{' '}
+            the{' '}
             <a
               className="red badge"
               style={{ display: 'inline' }}
               href="https://github.com/hotosm/MapCampaigner/pulls?utf8=%E2%9C%93&q=is%3Apr+author%3Alocaljo+"
             >
               Humanitarian OpenStreetMap Team
+            </a>{' '}
+            and{' '}
+            <a
+              className="teal badge"
+              style={{ display: 'inline' }}
+              href="https://github.com/climatecentral"
+            >
+              Climate Central
             </a>
             .
           </p>
