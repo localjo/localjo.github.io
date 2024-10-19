@@ -53,6 +53,8 @@ These are my favorite technologies to work with.
 [WCAG Accessibility](https://www.w3.org/WAI/standards-guidelines/wcag/){class="blue badge"}
 [PHP](https://www.php.net/){class="purple badge"}
 [Ruby](https://www.ruby-lang.org/){class="red badge"}
+[GraphQL](https://graphql.org/){class="purple badge"}
+[REST APIs](https://restfulapi.net/){class="blue badge"}
 
 ## Other Skills
 
